@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>quiz - tmblog</title>
+    
+    <script src="js/pergunta-quiz.js"></script>
+    <link rel="stylesheet" href="css/style_quiz.css">
+    <link rel="stylesheet" href="css/style_geral.css">
+    <link rel="shortcut icon" href="img/logo-aba-site.png" type="image/x-icon">
+    <script src="js/menu.js"></script>
+    <script src="js/funcoes.js"></script>
+    <script src="js/validacao.js"></script>
+
+</head>
+<body>
+    
+    <div class="siteTodo">
+        <div class="transparencia">
+        <!-- inicio header -->
+        <div class="header"> 
+        <div class="container">
+        <div class="logo"><img id="logo1" src="img/logo_tmblog-removebg-preview.png"></div>
+        <div class="menu">
+            <img onclick="clickmenu()" id="menu" src="img/menu_icon.png" style="cursor: pointer;">
+        </div>
+        </div> 
+        </div>
+ 
+            <!-- fim do header -->
+            
+            <!-- inicio do quiz -->
+            <div class="quiz"> 
+                <div class="card-quiz">
+                    <h1 id="oi"> Olá usuário, bem vindo a área do Quiz!!</h1>
+                    <span id="clique">Clique no botão de avaliar e prosseguir para iniciar o teste</span>
+                <div id="pergunta"></div>
+                    <div class="select">
+                        <select id="opcoes">
+                            <option class="option-teste">-- Escolha uma alternativa --</option>
+                            <option class="option-teste" value="A">a) Sim</option>
+                            <option class="option-teste" value="B">b) Não</option>
+                                </select>
+                    </div>
+            </div>
+            <div id="mensagem"></div>
+            </div>
+            <div class="prosseguir">
+            <button onclick="proximo()">Prosseguir</button>
+            <div id="pontuacao"></div>
+            </div>
+            <button id="validar" onclick="validar()">Validar</button>
+        </div>
+        
+        <!-- fim do quiz -->
+        
+
+        <!-- inicio do footer -->
+        <div class="transparenciaF">
+        <div class="footer">
+                <div class="cardF">
+                <div class="logo2"><img src="img/logo_tmblog-removebg-preview.png"></div>
+                <div class="listf">
+                <span>CONTATO</span>
+               
+                <div class="itens-lista">
+               <a href="https://github.com/GaBriellaCaRdosoInacio"><img src="img/github_icon.png"></a>
+               <a href="https://instagram.com/gabi_inacio_11?igshid=NTc4MTIwNjQ2YQ=="><img src="img/instagram.png"></a>
+               <a href="mailto:gabriella.inacio@sptech.school"><div class="email">@</div></a>
+            </div>
+                <div id="copy">Copyright © 2023 - All Rights Reserved - Tmblog Xavecando</div>
+
+                </div>
+
+            </div>
+            </div>
+         </div>
+            </div>
+        <!-- fim do footer -->
+    </div>
+   
+
+</body>
+</html>
+
+<script>
+
+
+</script>

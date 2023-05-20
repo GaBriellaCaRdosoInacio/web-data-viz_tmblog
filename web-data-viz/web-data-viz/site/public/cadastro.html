@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="EN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>cadastro - tmblog</title>
+    <link rel="shortcut icon" href="img/logo-aba-site.png" type="image/x-icon">
+    <script src="js/menu.js"></script>
+    <script src="js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/style_geral.css">
+    <link rel="stylesheet" href="css/style_quiz.css">
+
+</head>
+
+<body>
+
+    <div class="siteTodo">
+        <div class="transparencia">
+         <!-- inicio header -->
+            <div class="header"> 
+            <div class="container">
+            <div class="logo"><img id="logo1" src="img/logo_tmblog-removebg-preview.png"></div>
+            <div class="menu">
+                <img onclick="clickmenu()" id="menu" src="img/menu_icon.png" style="cursor: pointer;">
+            </div>
+            </div> 
+            </div>
+                <!-- fim do header -->
+                
+                <!-- inicio do cadastro -->
+                <div class="quiz">
+                    <div class="card-quiz">
+                        <h1>CADASTRO</h1>
+                <h2>Nome:</h2><input type="text" id="nome_input" placeholder="Insira seu nome">
+                <h2>Email:</h2><input type="email" id="email_inputC" placeholder="Insira seu e-mail">
+                <h2>Senha:</h2><input type="password" id="senha_inputC" placeholder="Insira sua senha">
+                <a href="login.html" id="login">Já possui conta? <span>login</span></a>
+                <button onclick="cadastrar()">Cadastrar</button>
+                </div>
+                <div id="mensagem"></div>
+           
+        </div>
+        </div>
+        <!-- fim do cadastro -->
+        
+
+        <!-- inicio do footer -->
+        <div class="transparenciaF">
+        <div class="footer">
+                <div class="cardF">
+                <div class="logo2"><img src="img/logo_tmblog-removebg-preview.png"></div>
+                <div class="listf">
+                <span>CONTATO</span>
+               
+                <div class="itens-lista">
+               <a href="https://github.com/GaBriellaCaRdosoInacio"><img src="img/github_icon.png"></a>
+               <a href="https://instagram.com/gabi_inacio_11?igshid=NTc4MTIwNjQ2YQ=="><img src="img/instagram.png"></a>
+               <a href="mailto:gabriella.inacio@sptech.school"><div class="email">@</div></a>
+            </div>
+                <div id="copy">Copyright © 2023 - All Rights Reserved - Tmblog Xavecando</div>
+
+                </div>
+
+            </div>
+            </div>
+         </div>
+            </div>
+        <!-- fim do footer -->
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_inputC.value;
+        var senhaVar = senha_inputC.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        if (senhaVar)
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

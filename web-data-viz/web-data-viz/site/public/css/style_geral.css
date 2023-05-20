@@ -1,0 +1,502 @@
+/* @import url('https://fonts.googleapis.com/css2?family= Roboto +Mono:wght@300 & display=swap'); */
+
+
+/* transparencia, tag a, body e geral (*) */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+background-color: #5baacab7;
+
+} 
+
+
+.siteTodo{
+background-image: url(../img/fundo-bgsite.jpg);
+z-index: 1;
+background-size: cover;
+}
+
+.siteTodo .transparencia{
+background-color: #5baacab7;
+}
+
+a{
+text-decoration: none;
+color: black;
+width: auto;
+}
+
+
+
+/* header */
+
+.header{
+background-color: rgba(255, 255, 255, 0.788);
+z-index: 1;
+
+}
+
+.container {
+width: 90%;
+margin: auto;
+display: flex;
+height: 120px;
+
+}
+
+.header .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.header .logo #logo1{
+  width:100%;
+  height:95px;
+  display: flex;
+  margin-top: 1px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.header .menu #menu{
+width: 60px;
+height: 60px;
+}
+
+.menu_resp{
+background-color: rgba(255, 255, 255, 0.89); 
+margin-left: 1149px;
+top: 120px; 
+width: 200px; 
+height: 220px;
+float: none;
+font-weight: bold;
+position: absolute;
+z-index: 1;
+}
+
+li{
+font-size: 22px;
+list-style: none;
+flex-direction: column;
+display: flex;
+align-items: center;
+line-height: 42px;
+}
+
+/* fim do header */
+
+/* inicio do banner */
+
+/* homepage||landingpage */
+
+.banner{
+display: flex;
+width: 530px;
+height:350px ;
+background: rgba(255, 255, 255, 0.733); 
+margin-top: 100px;
+text-align: center;
+justify-content: center;
+margin-left: 80px;
+border-radius: 15px;
+position:static;
+
+} 
+
+
+.atalho_quiz ul li{
+list-style: none;
+flex-direction: column;
+display:flex;
+align-items: center;
+line-height: 65px;
+}
+
+.atalho_quiz h1{
+margin-top: 30px;
+width: 500px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.atalho_quiz span {
+margin-top: 5px;
+font-family:Georgia, 'Times New Roman', Times, serif;
+color: #292828;
+}
+
+.atalho_quiz button{
+background-color: #675097;
+width: 150px;
+height: 38px;
+border-radius: 20px;
+border: none;
+font-size: 21px;
+} 
+
+.atalho_quiz button:hover {
+background-color: rgb(22, 22, 63);
+color:white;
+}
+
+.atalho_quiz button a{
+color: white;
+}
+
+.xaveco{
+height:180px;
+width: auto; 
+float: right;
+display: flex;
+margin-left: 20px;
+justify-items: center;
+align-items: end;
+position: relative;
+margin-top: -105px;
+}
+
+
+
+.xaveco img{
+height: 500px;
+width: auto;
+}
+
+.card{
+margin-top: 100px;
+padding: 15px;
+background-color: #578596e0;
+width: 100%;
+height: 650px;
+}
+
+.gif{
+margin-left: 150px;
+width: auto; 
+float: left;
+display: flex;
+justify-items: center;
+margin-top: 50px;
+
+}
+
+
+.card span{
+color: white;
+font-size: 38px;
+margin-top: 160px;
+margin-left: 65px;
+float: right;
+line-height: 45px;
+text-align: start;
+word-spacing: 8px;
+width: 550px;
+font-family: 'Roboto Mono', monospace;
+position: absolute;
+}
+
+/* fim do banner */
+
+/* inicio do footer */
+
+.footer{
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 90vh;
+width: 100%;
+}
+
+.transparenciaF{
+background-color: rgba(0, 0, 0, 0.692);
+}
+
+.logo2{
+float: left;
+margin-right: 100px;
+}
+
+.logo2 img{
+width: auto;
+height: 200px;
+margin-top: 20px;
+position: static;
+}
+
+.cardF {
+margin-left: 80px;
+height: 300px;
+width: 86vw;
+background-color: rgba(255, 255, 255, 0.856);
+border-radius: 15px;
+position: static;
+display: flex;
+justify-content: center;
+}
+
+.listf span {
+font-family: 'Roboto Mono', monospace;
+letter-spacing: 10px;
+font-size: 30px;
+position: absolute;
+margin-top: 70px;
+margin-left: 80px;
+}
+
+.listf{
+display: flex;
+list-style: none;
+}
+
+.itens-lista .email{
+font-size: 60px;
+margin-top: 90px;
+
+}
+
+.itens-lista img{
+height: 60px;
+margin-top: 90px;
+display: flex;
+}
+
+.itens-lista{
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+padding: 20px;
+margin-left: 60px;
+margin-top: -7px;
+position: absolute;
+
+}
+
+.listf #copy{
+font-family: 'Courier New', Courier, monospace;
+font-size: 23px;
+display: flex;
+justify-content: flex-end;
+height: 100px;
+width: auto;
+margin-top: 220px;
+
+}
+
+/* fim do footer */
+
+/* modelo padrao para quiz, cadastro e login */
+
+.card-quiz{
+padding: 18px;
+}
+
+.card-quizL{
+padding: 18px;
+}
+
+.card-quiz input{
+background-color: white;
+color: black;
+width: 300px;
+border-radius: 30px;
+height: 30px;
+border-style: none;
+margin-left: 5px;
+padding: 8px;
+}
+
+
+.card-quiz ::placeholder{
+color:rgba(0, 0, 0, 0.89);
+padding-left: 85px;
+font-family: 'Times New Roman', Times, serif;
+font-size: 20px;
+}
+
+.card-quizL input{
+background-color: white;
+color: black;
+width: 300px;
+border-radius: 30px;
+height: 30px;
+border-style: none;
+margin-left: 5px;
+padding: 8px;
+}
+
+.card-quizL ::placeholder{
+color:rgba(0, 0, 0, 0.89);
+padding-left: 85px;
+font-family: 'Times New Roman', Times, serif;
+font-size: 20px;
+}
+
+
+/* para cadastro */
+.card-quiz #nome_input{
+margin-top: 10px;
+}
+
+.card-quiz #email_inputC{
+margin-top: 10px;
+}
+
+.card-quiz #senha_inputC{
+margin-top: 10px;
+}
+
+/* para o login */
+
+.card-quizL #email_inputL{
+margin-top: 10px;
+}
+
+.card-quizL #senha_inputL{
+margin-top: 10px;
+}
+
+.card-quiz h1{
+margin-top: 10px;
+margin-left: 70px;
+}
+
+.card-quiz h2{
+margin-top: 10px;
+margin-left: 12px;
+}
+
+.card-quizL h1{
+margin-top: 10px;
+margin-left: 100px;
+}
+
+.card-quizL h2{
+margin-top: 10px;
+margin-left: 12px;
+}
+
+/* -- */
+
+.card-quiz button{
+background-color: #675097;
+width: 150px;
+height: 38px;
+border-radius: 20px;
+border: none;
+font-size: 21px;
+color: white;
+margin-top: 20px;
+margin-left: 80px;
+cursor: pointer;
+}
+
+.card-quiz button:hover {
+background-color: rgb(22, 22, 63);
+color:white;
+}
+
+.card-quizL button{
+background-color: #675097;
+width: 150px;
+height: 38px;
+border-radius: 20px;
+border: none;
+font-size: 21px;
+color: white;
+margin-top: 10px;
+margin-left: 80px;
+cursor: pointer;
+}
+
+.card-quizL button:hover {
+background-color: rgb(22, 22, 63);
+color:white;
+}
+
+.card-quiz #login{
+text-decoration: none;
+color: #675097;
+font-size: 20px;
+margin-top: 20px;
+margin-left: 60px;
+}
+
+.card-quizL #cadastro{
+text-decoration: none;
+color: #675097;
+font-size: 20px;
+margin-top: 20px;
+margin-left: 60px;
+}
+
+.card-quiz a span{
+font-weight: bold;
+}
+
+.card-quizL a span{
+font-weight: bold;
+}
+
+/* fim do modelo padrao */
+
+
+/* estilizacao do select */
+
+select{
+  overflow: hidden;
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  border: 3px solid #675097;
+  border-radius: 5px;
+  height: 40px;
+  width: auto;
+  margin-top: 20px;
+  margin-left: 40px;
+  font-size: 16px;
+  padding: 8px;
+  font-weight: 400px;
+
+}
+
+select:hover{
+border-color: #675097;
+color: #604f83;
+
+}
+
+select:hover:active{
+  border-color: #578596e0;
+  color: black; 
+}
+
+option{
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+
+}
+
+
+.option-teste{
+  border: 2px solid black;
+  color: black;
+  font-weight: 400px;
+}  
+
+.option-teste:hover{
+  color: white;
+}
+
+.option-teste:hover:active{
+  color: white;
+}

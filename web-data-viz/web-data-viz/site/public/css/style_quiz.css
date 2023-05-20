@@ -1,0 +1,104 @@
+/* modelo padrao quiz, cadastro e login */
+
+.quiz{
+  height: 80vh;
+}
+
+ .card-quiz{
+    background-color: rgba(255, 255, 255, 0.733);
+    height: 400px;
+    width: 350px;
+    margin-left: 500px;
+    margin-top: 50px;
+    border-radius: 30px;
+}
+
+.card-quizL{
+  background-color: rgba(255, 255, 255, 0.733);
+  height: 320px;
+  width: 350px;
+  margin-left: 500px;
+  margin-top: 80px;
+  border-radius: 30px;
+}
+
+/* button #sim{
+  background-color: #675097;
+  width: 145px;
+  height: 42px;
+  border-radius: 18px;
+  border: none;
+  font-size: 25px;
+  color: white;
+  margin-top:-280px;
+  margin-left: 615px;
+  font-family: 'Times New Roman', Times, serif;
+} */
+
+.transparenciaF{
+  background-color: rgba(0, 0, 0, 0.692);
+  }
+
+.quiz .lista-perguntas{
+  font-weight: bold;
+  position: absolute;
+  margin-top:-520px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 25px;
+  margin-left: 500px;
+}
+
+.card-quiz #pergunta{
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+.prosseguir button {
+  background-color: #675097;
+  width: 150px;
+  height: 38px;
+  border-radius: 20px;
+  border: none;
+  font-size: 21px;
+  color: white;
+  margin-top: -150px;
+  position: absolute;
+  margin-left: 595px;
+  cursor: pointer;
+}
+
+ #validar{
+  background-color: #675097;
+  width: 150px;
+  height: 38px;
+  border-radius: 20px;
+  border: none;
+  font-size: 21px;
+  color: white;
+  margin-top: -200px;
+  position: absolute;
+  margin-left: 595px;
+  cursor: pointer;
+}
+
+
+.card-quiz #oi{
+  width: 300px;
+  z-index: 1;
+  margin-left: 4px;
+  font-size: 40px;
+  padding-left: 3px;
+  text-align: center;  
+
+}
+
+.card-quiz #clique{
+  z-index: 1;
+  position: absolute;
+  font-size: 18px;
+  margin-left: 25px;
+  margin-top: 75px;
+  width: 250px;
+  text-align: center;  
+
+}

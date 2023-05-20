@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>login - tmblog</title>
+
+    <script src="./js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/style_quiz.css">
+    <link rel="stylesheet" href="css/style_geral.css">
+    <link rel="shortcut icon" href="img/logo-aba-site.png" type="image/x-icon">
+
+
+</head>
+
+<body>
+
+    <div class="siteTodo">
+        <div class="transparencia">
+            <!-- inicio header -->
+            <div class="header"> 
+            <div class="container">
+            <div class="logo"><img id="logo1" src="img/logo_tmblog-removebg-preview.png"></div>
+            <div class="menu">
+                <img onclick="clickmenu()" id="menu" src="img/menu_icon.png" style="cursor: pointer;">
+            </div>
+            </div> 
+            </div>
+                <!-- fim do header -->
+                
+                <!-- inicio do login -->
+            <div class="quiz">
+                <div class="card-quizL">
+                    <h1>LOGIN</h1>
+            <h2>Email:</h2><input type="email" id="email_inputL" placeholder="Insira seu e-mail">
+            <h2>Senha:</h2><input type="password" id="senha_inputL" placeholder="Insira sua senha">
+            <a href="cadastro.html" id="cadastro">Não possui conta? <span>cadastro</span></a>
+            <button onclick="entrar()">Entrar</button>
+            </div>
+            <div id="mensagem"></div>
+        
+        </div>
+    </div>
+    <div id="div_erros_login"></div>
+        <!-- fim do login -->
+        
+
+        <!-- inicio do footer -->
+        <div class="transparenciaF">
+        <div class="footer">
+                <div class="cardF">
+                <div class="logo2"><img src="img/logo_tmblog-removebg-preview.png"></div>
+                <div class="listf">
+                <span>CONTATO</span>
+               
+                <div class="itens-lista">
+               <a href="https://github.com/GaBriellaCaRdosoInacio"><img src="img/github_icon.png"></a>
+               <a href="https://instagram.com/gabi_inacio_11?igshid=NTc4MTIwNjQ2YQ=="><img src="img/instagram.png"></a>
+               <a href="mailto:gabriella.inacio@sptech.school"><div class="email">@</div></a>
+            </div>
+                <div id="copy">Copyright © 2023 - All Rights Reserved - Tmblog Xavecando</div>
+
+                </div>
+
+            </div>
+            </div>
+         </div>
+            </div>
+        <!-- fim do footer -->
+    </div>
+   
+
+
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_inputL.value;
+        var senhaVar = senha_inputL.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
