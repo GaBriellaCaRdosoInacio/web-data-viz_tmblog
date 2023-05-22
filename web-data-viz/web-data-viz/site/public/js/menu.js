@@ -8,11 +8,11 @@ contador+=1
 if(contador>0){
 if(contador==1){
     mensagem.innerHTML= `<ul class="menu_resp"> 
-        <li><a href="../Public/cadastro.html">Cadastro</a></li>
-        <li><a href="../Public/login.html">Login</a></li>
-        <li><a href="../Public/login.html">Quiz</a></li>
-        <li><a href="../Public/imagens.html">Imagens</a></li>
-        <li><a href="../Public/curiosidades.html">Curiosidade</a></li></ul>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="login.html">Quiz</a></li>
+        <li><a href="imagem.html">Imagens</a></li>
+        <li><a href="curiosidades.html">Curiosidade</a></li></ul>
 `
 } else {
     mensagem.innerHTML= ' ';

@@ -1,3 +1,7 @@
+
+//var global validar resposta
+var listaResp= [];
+
 function validar() {
 
     var select = opcoes.value;

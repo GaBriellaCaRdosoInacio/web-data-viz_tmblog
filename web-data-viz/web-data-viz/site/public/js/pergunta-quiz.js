@@ -7,7 +7,8 @@ function proximo(){
     pergunta.innerHTML= listaPerg[contadorP];
 }
 
-
+oi.innerHTML= ' ';
+clique.innerHTML= ' ';
 // var pontos=0;
 // if(numeroDapergunta == listaPerg.length){
 //     if (numeroDapergunta = 0 && valorInput== input_radioA){
@@ -26,16 +27,7 @@ contadorP++;
 
 
 
-//var global validar resposta
-var listaResp= [];
-var radioA = input_radioA.value;
-var radioB = input_radioB.value;
 
 
-function validar(){
-    listaResp.push(radioA, radioB)
-    if(listaPerg[0] && listaResp == sim){
-        alert('1');
-    }
 
-}
+

@@ -500,3 +500,101 @@ option{
 .option-teste:hover:active{
   color: white;
 }
+
+.cards{
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+height: 80vh;
+}
+
+.card1 { 
+  margin-top: 70px;
+  background-color: white;
+  height: 300px;
+  width: 400px;
+  border-radius: 20px;
+  font-size: 22px;
+}
+
+.card1:hover{
+  margin-top: 10px;
+}
+
+.card1 span{ 
+  font-size: 35px;
+  text-align: center;
+  display: flex;
+  margin-left: 130px;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.card1 div{
+  width: 280px;
+  margin-top: 3px;
+  line-height: 28px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.card2 { 
+  margin-top: 70px;
+  background-color: white;
+  height: 300px;
+  width: 400px;
+  border-radius: 20px;
+  font-size: 22px;
+}
+
+.card2:hover{
+  margin-top: 10px;
+}
+
+.card2 span{ 
+  font-size: 35px;
+  text-align: center;
+  display: flex;
+  margin-left: 105px;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.card2 div{
+  width: 280px;
+  margin-top: 3px;
+  line-height: 30px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.card3 { 
+  margin-top: 70px;
+  background-color: white;
+  height: 300px;
+  width: 400px;
+  border-radius: 20px;
+  font-size: 22px;
+}
+
+.card3:hover{
+  margin-top: 10px;
+}
+
+.card3 span{ 
+  font-size: 35px;
+  text-align: center;
+  display: flex;
+  margin-left: 90px;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.card3 div{
+  width: 276px;
+  margin-top: 3px;
+  line-height: 30px;
+  margin-left: 50px;
+  text-align: center;
+}
+
