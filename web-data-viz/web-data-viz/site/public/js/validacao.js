@@ -8,9 +8,12 @@ function validar() {
     listaResp.push(select);
 
     for(var posicao=0; posicao<listaResp.lenght; posicao++){
-        if(listaResp[posicao+1] == listaGabarito[posicao+1]){
+        if(listaResp[posicao] == listaGabarito[posicao]){
             acerto+=1;
         }
     } 
+    alert(`${acerto}`)
 
 }
+
+
