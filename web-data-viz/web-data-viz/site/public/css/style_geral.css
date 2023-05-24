@@ -598,3 +598,43 @@ height: 80vh;
   text-align: center;
 }
 
+.cardMonica{
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.809);
+  width: 500px;
+  margin-left: 50px;
+  height: 180px;
+  margin-top: 30px;
+  border-radius: 20px;
+  position: static;
+}
+
+.cardMonica img{
+  height: 150px;
+  margin-top: 12px;
+  margin-left: 20px;
+}
+
+.cardXaveco{
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.809);
+  width: 500px;
+  margin-right: 50px;
+  height: 180px;
+  margin-top: -180px;
+  border-radius: 20px;
+  float: right;
+  z-index: 1;
+}
+
+.cardXaveco img{
+  height: 150px;
+  margin-top: 10px;
+  border-radius: 30px;
+  float: right;
+  margin-right: 20px;
+}
+
+.cardMonica h1{
+  margin-top: 40px;
+}
