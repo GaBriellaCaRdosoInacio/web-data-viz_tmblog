@@ -653,25 +653,43 @@ height: 80vh;
 }
 
 .where_xaveco .acheXaveco{
-  position: absolute;
-  height: 60px;
-  margin-top: -380px;
-  margin-left: 980px;
+  position: relative;
+  height: 30px;
+  margin-top: -360px;
+  margin-left: 987px;
   opacity: 0.9;
   cursor: pointer;
 }
 
 .headerGame{
-  position: relative;
+  background-color: rgba(0, 0, 0, 0.972);
+  height: 55vh;
+  position: absolute;
   z-index: 1;
-  margin-top: -900px;
-  margin-left: 730px;
+  margin-top: -1030px;
+  margin-left: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.headerGame span{
+  margin-left: -40px;
+  position: absolute;
+  margin-top: 180px;
+  width: 280px;
+  line-height: 30px;
+  color: white;
+  font-size: 20px;
 }
 
 .headerGame h1{
-  background-color: rgba(0, 0, 0, 0.756);
   width: 400px;
-  height: 600px;
+  height: 400px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: white;
+  padding: 12px;
+  margin-left: 40px;
+  line-height: 40px;
 }
