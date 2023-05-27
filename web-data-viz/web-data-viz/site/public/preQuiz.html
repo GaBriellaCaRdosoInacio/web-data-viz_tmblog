@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style_geral.css">
+    <script src="js/menu.js"></script>
+
+</head>
+<body>
+
+    <style>
+    button{
+    background-color: #675097;
+    width: 150px;
+    height: 38px;
+    border-radius: 20px;
+    border: none;
+    font-size: 21px;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+} 
+
+    button:hover{
+    background-color: rgb(22, 22, 63);
+    color:white;
+}
+
+    </style>
+       
+    <div class="siteTodo">
+        <div class="transparencia">
+            <!-- inicio header -->
+            <div class="header"> 
+            <div class="container">
+            <div class="logo"><img id="logo1" src="img/logo_tmblog-removebg-preview.png"></div>
+            <div class="menu">
+                <img onclick="clickmenu()" id="menu" src="img/menu_icon.png" style="cursor: pointer;">
+            </div>
+            </div> 
+            </div>
+                <!-- fim do header -->
+
+            
+            <div class="where_xaveco">
+                <img src="img/where_xaveco.png" height="800px">
+                <img id="xavecoHere" onclick="achar()" src=" " class="acheXaveco">
+            </div>
+    
+            <div class="headerGame" id="headerGame">
+                <h1>Para iniciar o quiz encontre o xaveco dentro do tempo determinado (1 minutos) </h1>
+                <button onclick="iniciar()">Iniciar</button>
+            </div>
+
+            <div id="mensagem"></div>
+        </div>
+            <!-- inicio do footer -->
+            <div class="transparenciaF">
+            <div class="footer">
+                    <div class="cardF">
+                    <div class="logo2"><img src="img/logo_tmblog-removebg-preview.png"></div>
+                    <div class="listf">
+                    <span>CONTATO</span>
+                   
+                    <div class="itens-lista">
+                   <a href="https://github.com/GaBriellaCaRdosoInacio"><img src="img/github_icon.png"></a>
+                   <a href="https://instagram.com/gabi_inacio_11?igshid=NTc4MTIwNjQ2YQ=="><img src="img/instagram.png"></a>
+                   <a href="mailto:gabriella.inacio@sptech.school"><div class="email">@</div></a>
+                </div>
+                    <div id="copy">Copyright © 2023 - All Rights Reserved - Tmblog Xavecando</div>
+    
+                    </div>
+    
+                </div>
+                </div>
+             </div>
+                </div>
+            <!-- fim do footer -->
+        </div>
+</body>
+</html>
+
+<script>
+
+function iniciar(){
+    headerGame.innerHTML= ' ';
+    xavecoHere.src= `img/xavecoAqui.png`
+}
+
+function achar(){
+    
+}
+
+</script>

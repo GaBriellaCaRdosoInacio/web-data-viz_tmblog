@@ -638,3 +638,40 @@ height: 80vh;
 .cardMonica h1{
   margin-top: 40px;
 }
+
+.where_xaveco{
+  height: 1200px;
+}
+
+.where_xaveco img{
+  display: flex;
+  z-index: 1;
+  margin-top: 80px;
+  border-radius: 40px;
+  margin-left: 350px;
+  cursor: pointer;
+}
+
+.where_xaveco .acheXaveco{
+  position: absolute;
+  height: 60px;
+  margin-top: -380px;
+  margin-left: 980px;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.headerGame{
+  position: relative;
+  z-index: 1;
+  margin-top: -900px;
+  margin-left: 730px;
+}
+
+.headerGame h1{
+  background-color: rgba(0, 0, 0, 0.756);
+  width: 400px;
+  height: 600px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+}
