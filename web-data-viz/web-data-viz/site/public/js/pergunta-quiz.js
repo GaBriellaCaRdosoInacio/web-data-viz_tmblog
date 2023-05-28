@@ -10,6 +10,7 @@ function proximo(){
 
 oi.innerHTML= ' ';
 clique.innerHTML= ' ';
+alert(`${acerto}`)
 // var pontos=0;
 // if(numeroDapergunta == listaPerg.length){
 //     if (numeroDapergunta = 0 && valorInput== input_radioA){
