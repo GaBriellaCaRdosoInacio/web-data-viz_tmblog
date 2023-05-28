@@ -6,9 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
-
-    <link rel="stylesheet" href="../css/style.css">
+    <title>resultado quiz - tmblog </title>
     <link rel="stylesheet" href="dashboards.css">
     <script src="../js/funcoes.js"></script>
     
@@ -26,13 +24,32 @@
 
 <body onload=" atualizarFeed()">
 
-    <div class="janela">
-        <div class="header-left">
-            <h1>AquaTech</h1>
-
+    <div class="background">
+    <div class="header">
+            <img src="">
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
+            <button onclick="limparSessao()"> Sair </button>
+    </div>
+    <div class="banner">
+        <div class="kpi">
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+        </div>
+        <div class="resultado"></div>
+        <div class="chart"></div>
+        <img src="../img/xaveco_tracejado.png">
+        <img src=""> 
+        <!-- mapa de relacionamento -->
+        
+        <div class="ranking">
+
+        </div>
+    </div>
+
 
             <!-- <div class="btn-nav-white">
                 <a href="./cards.html">
@@ -51,10 +68,6 @@
                     <h3>Mural de Avisos</h3>
                 </a>
             </div> -->
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
 
         </div>
 
@@ -118,6 +131,7 @@
         </div>
     </div> -->
 
+</div>
 
 </body>
 
@@ -139,40 +153,42 @@
 
     verificar_autenticacao();
 
-    function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
-    }
+    // function alterarTitulo(idAquario) {
+    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
+    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+    // }
 
-    function exibirAquario(idAquario) {
-        let todosOsGraficos = document.getElementById("graficos")
+    // function exibirAquario(idAquario) {
+    //     let todosOsGraficos = document.getElementById("graficos")
 
-        for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
+    //     for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
             // exibindo - ou não - o gráfico
-            let elementoAtual = document.getElementById(`grafico${i}`)
-            if (elementoAtual.classList.contains("display-block")) {
-                elementoAtual.classList.remove("display-block")
-            }
-            elementoAtual.classList.add("display-none")
+        //     let elementoAtual = document.getElementById(`grafico${i}`)
+        //     if (elementoAtual.classList.contains("display-block")) {
+        //         elementoAtual.classList.remove("display-block")
+        //     }
+        //     elementoAtual.classList.add("display-none")
             
-            // alterando estilo do botão
-            let btnAtual = document.getElementById(`btnAquario${i}`)
-            if (btnAtual.classList.contains("btn-pink")) {
-                btnAtual.classList.remove("btn-pink")
-            }
-            btnAtual.classList.add("btn-white")
-        }
+        //     // alterando estilo do botão
+        //     let btnAtual = document.getElementById(`btnAquario${i}`)
+        //     if (btnAtual.classList.contains("btn-pink")) {
+        //         btnAtual.classList.remove("btn-pink")
+        //     }
+        //     btnAtual.classList.add("btn-white")
+        // }
         
         // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idAquario}`)
-        graficoExibir.classList.remove("display-none")
-        graficoExibir.classList.add("display-block")
+        // let graficoExibir = document.getElementById(`grafico${idAquario}`)
+        // graficoExibir.classList.remove("display-none")
+        // graficoExibir.classList.add("display-block")
         
         // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-        btnExibir.classList.remove("btn-white")
-        btnExibir.classList.add("btn-pink")
-    }
+    //     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
+    //     btnExibir.classList.remove("btn-white")
+    //     btnExibir.classList.add("btn-pink")
+    // }
+
+
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
