@@ -1,0 +1,156 @@
+
+
+/* transparencia, tag a, body e geral (*) */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+background-color: #5baacab7;
+z-index: 1;
+background-size: cover;
+} 
+
+
+.siteTodo{
+background-image: url(../img/fundo-bgsite.jpg);
+z-index: 1;
+background-size: cover;
+}
+
+.siteTodo .transparencia{
+background-color: #5baacab7;
+}
+
+.transparencia{
+  background-color: #5baacab7;
+}
+
+a{
+text-decoration: none;
+color: black;
+width: auto;
+}
+
+
+
+/* header */
+
+.header{
+background-color: rgba(255, 255, 255, 0.788);
+z-index: 1;
+height: 120px;
+}
+
+.container {
+width: 90%;
+margin: auto;
+display: flex;
+height: 120px;
+
+}
+
+.header .container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.header .logo #logo1{
+  width:100%;
+  height:95px;
+  display: flex;
+  margin-top: 1px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.header .menu #menu{
+width: 60px;
+height: 60px;
+}
+
+.menu_resp{
+background-color: rgba(255, 255, 255, 0.89); 
+margin-left: 1149px;
+top: 120px; 
+width: 200px; 
+height: 220px;
+float: none;
+font-weight: bold;
+position: absolute;
+z-index: 1;
+}
+
+li{
+font-size: 22px;
+list-style: none;
+flex-direction: column;
+display: flex;
+align-items: center;
+line-height: 42px;
+}
+
+/* fim do header */
+
+/* inicio do banner */
+
+/* homepage||landingpage */
+
+.banner{
+  display: flex;
+  width: 87%;
+  height: 900px;
+  background-color: white; 
+  margin-top: 80px;
+  text-align: center;
+  justify-content: center;
+  margin-left: 80px;
+  border-radius: 15px;
+  position:static;
+} 
+
+button{
+  background-color: #675097;
+  width: 150px;
+  height: 38px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-size: 21px;
+  } 
+
+  .user img{
+    margin-left: 10px;
+    width: auto;
+    height: 100px;
+  }
+
+  .hello{
+    margin-right: 700px;
+  }
+
+  .hello span{ 
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 25px;
+  }
+
+  .hello h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+  }
+
+  .kpi{
+    width: 80%;
+    height: auto;
+  }
+
+  .k1{
+    
+  }
+
+

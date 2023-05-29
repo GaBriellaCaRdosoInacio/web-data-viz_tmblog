@@ -7,15 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>resultado quiz - tmblog </title>
+
+    <!-- <link rel="stylesheet" href="../css/style_geral.css"> -->
     <link rel="stylesheet" href="dashboards.css">
     <script src="../js/funcoes.js"></script>
-    
-    <!-- 
-    <div class="hello">
-        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-    </div> DIV QUE PEGA O NOME DO USUÁRIO--> 
-
-    <!-- scripts do Chart.js - 2022-1 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!--FONT AWESOME-->
@@ -24,114 +19,62 @@
 
 <body onload=" atualizarFeed()">
 
-    <div class="background">
-    <div class="header">
-            <img src="">
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+    <div class="siteTodo">
+        <div class="transparencia">
+         <!-- inicio header -->
+            <div class="header"> 
+            <div class="container">
+                <div class="user">
+                    <img src="../img/user.png">
+                </div>
+                <div class="hello">
+                    <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                </div>
+
+            <div class="menu">
+                <img onclick="clickmenu()" id="menu" src="../img/menu_icon.png" style="cursor: pointer;">
             </div>
-            <button onclick="limparSessao()"> Sair </button>
-    </div>
-    <div class="banner">
-        <div class="kpi">
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-        </div>
-        <div class="resultado"></div>
-        <div class="chart"></div>
-        <img src="../img/xaveco_tracejado.png">
-        <img src=""> 
-        <!-- mapa de relacionamento -->
+
+            <button class="logout" onclick="limparSessao()">Sair</button>
+            </div> 
+            </div>
+
+            <div class="banner">
+
+                <div class="kpi">
+
+                    <div class="k1">
+                    <span>Não te representa</span>
+                    </div>
+
+                    <div class="k2">
+                    <span>Representa um pouco</span>
+                    </div>
+
+                    <div class="k3">
+                     <span>Te representa</span>
+                    </div>
+
+                    <div class="k4">
+                    <span>Você é o Xaveco?</span>
+                    </div>
+                </div>
+
+                <div class="resultado"></div>
+
+                <div class="chart"></div>
+
+                <img src="" id="tracejado">
+                <img src="" id="mapaRelacionamento">
+
+
+            </div>
         
-        <div class="ranking">
 
         </div>
     </div>
-
-
-            <!-- <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div> -->
-
-            <!-- <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div> -->
-
-            <!-- <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div> -->
-
-        </div>
-
-        <div class="dash">
-            <!-- <div class="btns-dash"> -->
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                <!-- <button class="btn-chart btn-pink" onclick="exibirAquario(1)" id="btnAquario1">Aquario 1</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(2)" id="btnAquario2">Aquario 2</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(3)" id="btnAquario3">Aquario 3</button>
-                <button class="btn-chart btn-white" onclick="exibirAquario(4)" id="btnAquario4">Aquario 4</button>
-            </div>
-            <div id="graficos">
-                <div id="grafico1" class="display-block">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario1">123</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas1"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura1" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico2" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario2"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas2"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura2" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico3" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario3"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas3"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura3" style="color: white"></p>
-                    </div>
-                </div>
-
-                <div id="grafico4" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario4"></span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas4"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura4" style="color: white"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
 </div>
+
 
 </body>
 
@@ -153,42 +96,40 @@
 
     verificar_autenticacao();
 
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
-    // }
+    function alterarTitulo(idAquario) {
+        var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
+        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+    }
 
-    // function exibirAquario(idAquario) {
-    //     let todosOsGraficos = document.getElementById("graficos")
+    function exibirAquario(idAquario) {
+        let todosOsGraficos = document.getElementById("graficos")
 
-    //     for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
+        for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
             // exibindo - ou não - o gráfico
-        //     let elementoAtual = document.getElementById(`grafico${i}`)
-        //     if (elementoAtual.classList.contains("display-block")) {
-        //         elementoAtual.classList.remove("display-block")
-        //     }
-        //     elementoAtual.classList.add("display-none")
+            let elementoAtual = document.getElementById(`grafico${i}`)
+            if (elementoAtual.classList.contains("display-block")) {
+                elementoAtual.classList.remove("display-block")
+            }
+            elementoAtual.classList.add("display-none")
             
-        //     // alterando estilo do botão
-        //     let btnAtual = document.getElementById(`btnAquario${i}`)
-        //     if (btnAtual.classList.contains("btn-pink")) {
-        //         btnAtual.classList.remove("btn-pink")
-        //     }
-        //     btnAtual.classList.add("btn-white")
-        // }
+            // alterando estilo do botão
+            let btnAtual = document.getElementById(`btnAquario${i}`)
+            if (btnAtual.classList.contains("btn-pink")) {
+                btnAtual.classList.remove("btn-pink")
+            }
+            btnAtual.classList.add("btn-white")
+        }
         
         // exibindo - ou não - o gráfico
-        // let graficoExibir = document.getElementById(`grafico${idAquario}`)
-        // graficoExibir.classList.remove("display-none")
-        // graficoExibir.classList.add("display-block")
+        let graficoExibir = document.getElementById(`grafico${idAquario}`)
+        graficoExibir.classList.remove("display-none")
+        graficoExibir.classList.add("display-block")
         
         // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-    //     btnExibir.classList.remove("btn-white")
-    //     btnExibir.classList.add("btn-pink")
-    // }
-
-
+        let btnExibir = document.getElementById(`btnAquario${idAquario}`)
+        btnExibir.classList.remove("btn-white")
+        btnExibir.classList.add("btn-pink")
+    }
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
