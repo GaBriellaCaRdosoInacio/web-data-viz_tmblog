@@ -7,13 +7,11 @@
 
     <title>quiz - tmblog</title>
     
-    <script src="js/pergunta-quiz.js"></script>
     <link rel="stylesheet" href="css/style_quiz.css">
     <link rel="stylesheet" href="css/style_geral.css">
     <link rel="shortcut icon" href="img/logo-aba-site.png" type="image/x-icon">
     <script src="js/menu.js"></script>
     <script src="js/funcoes.js"></script>
-    <script src="js/validacao.js"></script>
 
 </head>
 <body>
@@ -39,10 +37,10 @@
                     <span id="clique">Clique no botão de validar e prosseguir para iniciar o teste</span>
                 <div id="pergunta"></div>
                     <div class="select">
-                        <select id="resposta">
-                            <option class="option-teste">-- Escolha uma alternativa --</option>
-                            <option class="option-teste" value="A">a) Sim</option>
-                            <option class="option-teste" value="B">b) Não</option>
+                        <select id="select_resposta">
+                            <option class="option-teste" id="optEscolha">-- Escolha uma alternativa --</option>
+                            <option class="option-teste" value="A"> Sim</option>
+                            <option class="option-teste" value="B"> Não</option>
                                 </select>
                     </div>
             </div>
@@ -84,3 +82,56 @@
 
 </body>
 </html>
+
+<script>
+
+b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+//var global validar resposta
+// var listaGabarito= [ '  ', 'A', 'B', 'A','A', 'A'];
+var acerto= 0;
+var contadorQuiz=0
+var resposta= select_resposta.value;
+
+function validar() {
+var resposta= select_resposta.value;
+contadorQuiz==1; 
+if(contadorQuiz> 1) {
+    alert('só pode validar 1 vez');
+}
+
+else{
+    for(var contador=0; contador< 4 ; contador++){
+        console.log('você está na questão' + contador)
+            if(contador== 0){
+            if (resposta=='A') {
+                acerto += 1;
+                console.log(acerto)
+            } else {
+                console.log(acerto)
+            }}
+
+} contadorQuiz++;
+
+
+
+// pergunta.innerHTML= listaPerg[contadorP];
+var listaPerg= [["1- Você considera sua imaginação fértil?"],["2- Você se considera uma pessoa que atrai sorte?"], ["3- Se um amigo seu está com problemas, você tentaria diversas coisas para poder ajuda-lo?"], ["4- Você tenta ser positivo mediante as dificuldades?"], ["5- Sua família é caótica?"]];
+var contadorP=0;
+
+
+function proximo(){
+    if(contadorP< listaPerg.length){
+    pergunta.innerHTML= listaPerg[contadorP];
+}
+
+oi.innerHTML= ' ';
+clique.innerHTML= ' ';
+
+contadorP++;
+}
+
+}
+
+}
+</script>
