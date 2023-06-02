@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="img/logo-aba-site.png" type="image/x-icon">
     <script src="js/menu.js"></script>
     <script src="js/funcoes.js"></script>
+    <script src="../public/js/pergunta.js"></script>
 
 </head>
 <body>
@@ -33,7 +34,7 @@
             <!-- inicio do quiz -->
             <div class="quiz"> 
                 <div class="card-quiz">
-                    <h1 id="oi"> Olá <span id="b_usuario">usuário</span>, bem vindo a área do Quiz!!</h1>
+                    <h1 id="oi"> Olá <span id="b_usuario">usuário</span>, bem vindo(a) a área do Quiz!!</h1>
                     <span id="clique">Clique no botão de validar e prosseguir para iniciar o teste</span>
                 <div id="pergunta"></div>
                     <div class="select">
@@ -113,25 +114,6 @@ else{
 
 } contadorQuiz++;
 
+}}
 
-
-// pergunta.innerHTML= listaPerg[contadorP];
-var listaPerg= [["1- Você considera sua imaginação fértil?"],["2- Você se considera uma pessoa que atrai sorte?"], ["3- Se um amigo seu está com problemas, você tentaria diversas coisas para poder ajuda-lo?"], ["4- Você tenta ser positivo mediante as dificuldades?"], ["5- Sua família é caótica?"]];
-var contadorP=0;
-
-
-function proximo(){
-    if(contadorP< listaPerg.length){
-    pergunta.innerHTML= listaPerg[contadorP];
-}
-
-oi.innerHTML= ' ';
-clique.innerHTML= ' ';
-
-contadorP++;
-}
-
-}
-
-}
 </script>

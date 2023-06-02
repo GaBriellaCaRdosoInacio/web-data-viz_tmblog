@@ -1,86 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ache o xaveco - tmblog</title>
-    <link rel="shortcut icon" href="img/logo-aba-site.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style_geral.css">
+    <link
+      rel="shortcut icon"
+      href="img/logo-aba-site.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/style_geral.css" />
     <script src="js/menu.js"></script>
-
-</head>
-<body>
-
+  </head>
+  <body>
     <style>
-    button{
-    margin-top: -60px;
-    position: relative;
-    background-color: rgb(22, 22, 63);
-    width: 150px;
-    height: 38px;
-    border-radius: 20px;
-    border: none;
-    font-size: 21px;
-    color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    cursor: pointer;
-} 
+      button {
+        margin-top: -60px;
+        position: relative;
+        background-color: rgb(22, 22, 63);
+        width: 150px;
+        height: 38px;
+        border-radius: 20px;
+        border: none;
+        font-size: 21px;
+        color: white;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        cursor: pointer;
+      }
 
-    button:hover{
-    background-color: white;
-    color: black;
-}
-
+      button:hover {
+        background-color: white;
+        color: black;
+      }
     </style>
-       
+
     <div class="siteTodo">
-        <div class="transparencia">
-            <!-- inicio header -->
-            <div class="header"> 
-            <div class="container">
-            <div class="logo"><img id="logo1" src="img/logo_tmblog-removebg-preview.png"></div>
+      <div class="transparencia">
+        <!-- inicio header -->
+        <div class="header">
+          <div class="container">
+            <div class="logo">
+              <img id="logo1" src="img/logo_tmblog-removebg-preview.png" />
+            </div>
             <div class="menu">
-                <img onclick="clickmenu()" id="menu" src="img/menu_icon.png" style="cursor: pointer;">
+              <img
+                onclick="clickmenu()"
+                id="menu"
+                src="img/menu_icon.png"
+                style="cursor: pointer"
+              />
             </div>
-            </div> 
-            </div>
-                <!-- fim do header -->
+          </div>
+        </div>
+        <!-- fim do header -->
 
-            
-            <div class="where_xaveco">
-                <img src="img/where_xaveco.png" height="800px">
-                <img id="xavecoHere" onclick="achar()" src="img/xavecoAqui.png" class="acheXaveco">
-            </div>
+        <span style="font-size: 2em" id="span_tempo"></span>
 
-            <div id="mensagem"></div>
-
-    
-            <div class="headerGame" id="headerGame">
-                <h1>Para iniciar o quiz encontre o xaveco dentro do tempo determinado (1 minuto) </h1>
-                <span> Encontre o xaveco dentro desse cenário mas atenção, ignore o wally e não vale dar zoom</span>
-                <button onclick="iniciar()">Iniciar</button>
-            </div>
-
+        <div class="where_xaveco">
+          <img src="img/where_xaveco.png" height="800px" />
+          <img
+            id="xavecoHere"
+            onclick="achar()"
+            src="img/xavecoAqui.png"
+            class="acheXaveco"
+          />
         </div>
 
+        <div id="mensagem"></div>
+
+        <div class="headerGame" id="headerGame">
+          <h1>
+            Para iniciar o quiz encontre o xaveco dentro do tempo determinado (1
+            minuto)
+          </h1>
+          <span>
+            Encontre o xaveco dentro desse cenário mas atenção, ignore o wally e
+            não vale dar zoom</span
+          >
+          <button onclick="iniciar()">Iniciar</button>
         </div>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
 
 <script>
+  var segundo = 10;
+  span_tempo.innerHTML = segundo;
 
-var segundo=0;
+  var interval = null;
 
-function iniciar(){
-    
-    headerGame.innerHTML= ' ';    
-}
+  function iniciar() {
+    headerGame.innerHTML = " ";
 
-function achar(){
-    alert('achou')
-}
+    interval = setInterval(() => {
+      segundo -= 1;
+      span_tempo.innerHTML = segundo;
+      if (segundo <= 0) {
+        clearInterval(interval);
 
+        alert("O tempo acabou !");
+
+      }
+    }, 1000);
+  }
+
+  function achar() {
+    clearInterval(interval);
+
+    var tempoPercorrido = 10 - segundo;
+
+    alert(`Achou, levou ${tempoPercorrido} segundo !`);
+
+    // id do usuario
+    // tempoPercorrido
+
+    // fazer um FETCH e passar esse tempo (variavel segundo) para a API.
+  }
 </script>

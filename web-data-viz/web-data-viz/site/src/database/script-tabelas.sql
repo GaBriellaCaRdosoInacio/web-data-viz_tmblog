@@ -5,7 +5,6 @@
 /*
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
-
 create database tmblog;
 
 use tmblog;
@@ -27,6 +26,14 @@ idresp int primary key auto_increment,
 resposta char(1)
 );
 
+create table preQuiz(
+idPreQuiz int,
+fkusuario int,
+tempo int,
+constraint fkusuario foreign key (fkusuario) references usuario(iduser)
+);
+
+
 create table resultado_quiz(
 fkpergunta int,
 constraint fkpergunta foreign key (fkpergunta)
@@ -41,6 +48,7 @@ references usuario (iduser),
 porcento_xaveco int
 );
 
+SELECT * FROM preQuiz;
 
 
 
