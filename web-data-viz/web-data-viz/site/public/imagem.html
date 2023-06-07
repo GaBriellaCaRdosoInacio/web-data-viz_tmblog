@@ -26,30 +26,25 @@
             </div> 
             </div>
                 <!-- fim do header -->
-                <div class="monica">
-                    <img src="">
-                    <h1></h1>
-                    <span></span>
-                </div>
-                <div class="xaveco">
-                    <img src="">
-                    <h1></h1>
-                    <span></span>
-                </div>
 
                 <!-- inicio area personagens -->
+                <div class="botoes">
                 <div class="cardMonica">
-                    <img src="img/button_monica.png">
+                    <img src="img/button_monica.png" onclick="monicaRandom()">
                     <h1>Ver a Turma</h1>
                     <span>Clique no botão da Mônica</span>
                 </div>
 
                 <div class="cardXaveco">
-                    <img src="img/button_xaveco.jpg">
+                    <img src="img/button_xaveco.jpg" onclick="xavecoRandom()">
                     <h1>Ver Xaveco</h1>
                     <span>Clique no botão do Xaveco</span>
                 </div>
-
+            </div>
+            <div class="exibicao">
+                <div id="turma"></div>
+                <div id="xaveco"></div>
+            </div>
         <!-- fim area personagens -->
         <div id="mensagem"></div>
         </div>
@@ -79,9 +74,22 @@
         <!-- fim do footer -->
     </div>
 
+<img src="img/mathRandom/X/foto1X.png">
+
 </body>
 </html>
 
 <script>
-    
+
+var galeriaMonica=['<img src="img/mathRandom/M/foto1M.png">', ''];
+var galeriaXavec0=['<img src="img/mathRandom/X/foto1X.png">', ''];
+
+function monicaRandom(){}
+
+var min=0;
+var max= 
+var fotoAleatoria= Math.random();
+
+function xavecoRandom() {}
+
 </script>

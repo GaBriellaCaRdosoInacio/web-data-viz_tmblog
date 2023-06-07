@@ -97,14 +97,15 @@ var resposta= select_resposta.value;
 function validar() {
 var resposta= select_resposta.value;
 contadorQuiz==1; 
-if(contadorQuiz> 1) {
-    alert('só pode validar 1 vez');
-}
 
-else{
-    for(var contador=0; contador< 4 ; contador++){
-        console.log('você está na questão' + contador)
-            if(contador== 0){
+// if(contadorQuiz> 1) {
+//     alert('só pode validar 1 vez');
+// }
+
+// else{}
+    for(var contador=0; contador< 5 ; contador++){
+        // console.log('você está na questão' + contador)
+        if(contador== 0 && proximaQ==1){
             if (resposta=='A') {
                 acerto += 1;
                 console.log(acerto)
@@ -112,8 +113,41 @@ else{
                 console.log(acerto)
             }}
 
+            if(contador== 1 && proximaQ==2){
+            if (resposta=='B') {
+                acerto += 1;
+                console.log(acerto)
+            } else {
+                console.log(acerto)
+            }}
+            if(contador== 2 && proximaQ==3){
+            if (resposta=='A') {
+                acerto += 1;
+                console.log(acerto)
+            } else {
+                console.log(acerto)
+            }}
+            if(contador== 3 && proximaQ==4){
+            if (resposta=='A') {
+                acerto += 1;
+                console.log(acerto)
+            } else {
+                console.log(acerto)
+            }}
+            if(contador== 4 && proximaQ==5){
+            if (resposta=='A') {
+                acerto += 1;
+                console.log(acerto)
+            } else {
+                console.log(acerto)
+            }}
+            
+
 } contadorQuiz++;
 
-}}
+}
+
+
+
 
 </script>
