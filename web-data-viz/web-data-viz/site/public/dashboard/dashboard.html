@@ -78,21 +78,19 @@
                     <button onclick="jogar()">Jogar</button>
                     </div>
 
-                    
-                <!-- <div class="mychart">
-                    <canvas id="graficoPizza"></canvas>
-                </div> -->
 
-                <div class="mapa">
+                <div class="mapa" id="mapa">
                 <img src="../img/Mapa de Relacionamento Xaveco.png">
                 <h2>Este mapa indica as relações do personagem, onde as linhas mais fortes indicam maior proximidade e as mais fracas menor proximidade</h2>
                     <button onclick="exibirGrafico()">Ver gráficos</button>
             </div>
-
+              <!-- <div class="mychart">
+                    <canvas id="graficoPizza"></canvas>
+                </div> -->
             </div>
         
 
-        </div>
+        </div>s
     </div>
 </div>
 
@@ -110,6 +108,10 @@
 
     function jogar(){
         window.location = '../preQuiz.html';
+    }
+
+    function exibirGrafico(){
+        mapa.innerHTML= ' ';
     }
 
     function obterDadosGraficos() {
