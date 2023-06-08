@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>resultado quiz - tmblog </title>
+    <link rel="shortcut icon" href="../img/logo-aba-site.png" type="image/x-icon">
 
     <!-- <link rel="stylesheet" href="../css/style_geral.css"> -->
     <link rel="stylesheet" href="dashboards.css">
@@ -62,8 +63,6 @@
                     </div>
                 </div>
 
-                <div class="chart"></div>
-
                 <div class="resultado"></div>
 
                 <div class="ranking">
@@ -75,10 +74,20 @@
                     <li>4º Lugar <span id="top4"></span></li>
                     <li>5º Lugar <span id="top5"></span></li>
                     </ul>
+                    <small>Jogue e tente entrar no ranking</small>
+                    <button onclick="jogar">Jogar</button>
                     </div>
 
-                <!-- <img src="../img/Mapa de Relacionamento Xaveco.png" id="mapaRelacionamento"> -->
+                    
+                <!-- <div class="mychart">
+                    <canvas id="graficoPizza"></canvas>
+                </div> -->
 
+                <div class="mapa">
+                <img src="../img/Mapa de Relacionamento Xaveco.png">
+                <h2>Este mapa indica as relações do personagem, onde as linhas mais fortes indicam maior proximidade e as mais fracas menor proximidade</h2>
+                    <button onclick="exibirGrafico()">Ver gráficos</button>
+            </div>
 
             </div>
         
@@ -107,41 +116,6 @@
     }
 
     verificar_autenticacao();
-
-    function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
-    }
-
-    function exibirAquario(idAquario) {
-        let todosOsGraficos = document.getElementById("graficos")
-
-        for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
-            // exibindo - ou não - o gráfico
-            let elementoAtual = document.getElementById(`grafico${i}`)
-            if (elementoAtual.classList.contains("display-block")) {
-                elementoAtual.classList.remove("display-block")
-            }
-            elementoAtual.classList.add("display-none")
-            
-            // alterando estilo do botão
-            let btnAtual = document.getElementById(`btnAquario${i}`)
-            if (btnAtual.classList.contains("btn-pink")) {
-                btnAtual.classList.remove("btn-pink")
-            }
-            btnAtual.classList.add("btn-white")
-        }
-        
-        // exibindo - ou não - o gráfico
-        let graficoExibir = document.getElementById(`grafico${idAquario}`)
-        graficoExibir.classList.remove("display-none")
-        graficoExibir.classList.add("display-block")
-        
-        // alterando estilo do botão
-        let btnExibir = document.getElementById(`btnAquario${idAquario}`)
-        btnExibir.classList.remove("btn-white")
-        btnExibir.classList.add("btn-pink")
-    }
 
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez

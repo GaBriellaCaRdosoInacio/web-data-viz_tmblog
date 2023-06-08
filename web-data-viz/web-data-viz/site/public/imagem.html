@@ -42,12 +42,12 @@
                 </div>
             </div>
             <div class="exibicao">
-                <div id="turma">
-                    <img src="" id="imgM1" height="220px">
-                    <img src="" id="imgM2" height="220px">
+                <div id="turma" style="margin-left: 6%;">
+                    <img src="" id="imgM1" height="230px" style="margin-top: 30px;">
+                    <img src="" id="imgM2" height="230px">
                 </div>
-                <div id="xaveco">
-                    <img src="" id="imgX" height="250px">
+                <div id="xaveco" style="position: absolute; margin-left: 400px;">
+                    <img src="" id="imgX" height="280px" style="margin-top: 10px;">
                 </div>
             </div>
         <!-- fim area personagens -->
@@ -79,8 +79,6 @@
         <!-- fim do footer -->
     </div>
 
-    <img src="img/mathRandom/X/foto4X.png" alt="">
-
 </body>
 </html>
 
@@ -91,13 +89,15 @@ var galeriaXaveco=['img/mathRandom/X/foto1X.png', 'img/mathRandom/X/foto2X.jpg',
 
 function monicaRandom(){
     if (galeriaMonica.length > 0) {
-            var posicaoSorteada = parseInt(Math.random() * galeriaMonica.length);
-
-            imgM1.src = galeriaMonica[posicaoSorteada];
-
+            var posicaoSorteada1 = parseInt(Math.random() * galeriaMonica.length);
+            var posicaoSorteada2 = parseInt(Math.random() * galeriaMonica.length);
 
 
-            imgM2.src = galeriaMonica[posicaoSorteada];
+            imgM1.src = galeriaMonica[posicaoSorteada1];
+
+
+
+            imgM2.src = galeriaMonica[posicaoSorteada2];
 
         }
 }

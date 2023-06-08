@@ -122,6 +122,7 @@ button{
   border: none;
   color: white;
   font-size: 21px;
+  cursor: pointer;
   } 
 
   .user img{
@@ -152,7 +153,7 @@ button{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
 
   .k1{
@@ -245,4 +246,40 @@ button{
 
   .ranking ul{
     margin-top: 20px;
+  }
+
+
+
+  .ranking button{
+    margin-top: 30px;
+  }
+
+/* 
+  .mychart{
+    position: absolute;
+  } */
+
+  .mapa{
+    position: absolute;
+    margin-top: 610px;
+    display: flex;
+    align-items: start;
+    margin-right: 120px;
+    justify-content: space-evenly;
+  }
+
+  .mapa img{
+    width: 40vw;
+    height: 45vh;
+  }
+
+  .mapa h2{
+    margin-top: 50px;
+    margin-left: 20px;
+    color: #675097;
+    width: 300px;
+  }
+
+  .mapa button{
+    margin-top: 220px;
   }
