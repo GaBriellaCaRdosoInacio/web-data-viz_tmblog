@@ -75,7 +75,7 @@
                     <li>5º Lugar <span id="top5"></span></li>
                     </ul>
                     <small>Jogue e tente entrar no ranking</small>
-                    <button onclick="jogar">Jogar</button>
+                    <button onclick="jogar()">Jogar</button>
                     </div>
 
                     
@@ -107,6 +107,10 @@
     let proximaAtualizacao;
 
     window.onload = obterDadosGraficos();
+
+    function jogar(){
+        window.location = '../preQuiz.html';
+    }
 
     function obterDadosGraficos() {
         obterDadosGrafico(1)

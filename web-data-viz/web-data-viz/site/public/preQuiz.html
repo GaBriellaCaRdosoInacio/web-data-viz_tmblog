@@ -55,7 +55,11 @@
         </div>
         <!-- fim do header -->
 
-        <span style="font-size: 2em" id="span_tempo"></span>
+
+        <div class="timer">
+          <h2>TEMPO</h2>
+          <span style="font-size: 2em" id="span_tempo"></span>
+        </div>
 
         <div class="where_xaveco">
           <img src="img/where_xaveco.png" height="800px" />
@@ -112,6 +116,10 @@
     var tempoPercorrido = 60 - segundo;
 
     alert(`Achou, levou ${tempoPercorrido} segundo !`);
+
+      setTimeout(function () {
+    window.location = "quiz.html";
+    }, 1000); 
 
     // id do usuario
     // tempoPercorrido

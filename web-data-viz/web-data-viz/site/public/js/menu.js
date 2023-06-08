@@ -12,8 +12,7 @@ if(contador==1){
         <li><a href="login.html">Login</a></li>
         <li><a href="login.html">Quiz</a></li>
         <li><a href="imagem.html">Imagens</a></li>
-        <li><a href="curiosidades.html">Curiosidade</a></li></ul>
-`
+        <li><a href="curiosidades.html">Curiosidade</a></li></ul>`
 } else {
     mensagem.innerHTML= ' ';
     contador=0
