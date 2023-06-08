@@ -42,8 +42,13 @@
                 </div>
             </div>
             <div class="exibicao">
-                <div id="turma"></div>
-                <div id="xaveco"></div>
+                <div id="turma">
+                    <img src="" id="imgM1" height="220px">
+                    <img src="" id="imgM2" height="220px">
+                </div>
+                <div id="xaveco">
+                    <img src="" id="imgX" height="250px">
+                </div>
             </div>
         <!-- fim area personagens -->
         <div id="mensagem"></div>
@@ -74,22 +79,37 @@
         <!-- fim do footer -->
     </div>
 
-<img src="img/mathRandom/X/foto1X.png">
+    <img src="img/mathRandom/X/foto4X.png" alt="">
 
 </body>
 </html>
 
 <script>
 
-var galeriaMonica=['<img src="img/mathRandom/M/foto1M.png">', ''];
-var galeriaXavec0=['<img src="img/mathRandom/X/foto1X.png">', ''];
+var galeriaMonica=['img/mathRandom/M/foto1M.png', 'img/mathRandom/M/foto2M.jpg', 'img/mathRandom/M/foto3M.jpg', 'img/mathRandom/M/foto4M.jpg', 'img/mathRandom/M/foto5M.jpg','img/mathRandom/M/foto6M.jpg'];
+var galeriaXaveco=['img/mathRandom/X/foto1X.png', 'img/mathRandom/X/foto2X.jpg', 'img/mathRandom/X/foto3X.jpg', 'img/mathRandom/X/foto4X.png', 'img/mathRandom/X/foto5X.png', 'img/mathRandom/X/foto6X.png'];
 
-function monicaRandom(){}
+function monicaRandom(){
+    if (galeriaMonica.length > 0) {
+            var posicaoSorteada = parseInt(Math.random() * galeriaMonica.length);
 
-var min=0;
-var max= 
-var fotoAleatoria= Math.random();
+            imgM1.src = galeriaMonica[posicaoSorteada];
 
-function xavecoRandom() {}
+
+
+            imgM2.src = galeriaMonica[posicaoSorteada];
+
+        }
+}
+
+
+function xavecoRandom() {
+    if (galeriaXaveco.length > 0) {
+            var posicaoSorteada = parseInt(Math.random() * galeriaXaveco.length);
+
+            imgX.src = galeriaXaveco[posicaoSorteada];
+
+        }
+}
 
 </script>

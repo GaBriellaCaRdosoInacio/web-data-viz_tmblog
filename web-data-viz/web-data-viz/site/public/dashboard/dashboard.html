@@ -11,6 +11,7 @@
     <!-- <link rel="stylesheet" href="../css/style_geral.css"> -->
     <link rel="stylesheet" href="dashboards.css">
     <script src="../js/funcoes.js"></script>
+    <script src="../js/menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!--FONT AWESOME-->
@@ -41,6 +42,7 @@
 
             <div class="banner">
 
+                <div id="mensagem"></div>
                 <div class="kpi">
 
                     <div class="k1">
@@ -60,12 +62,22 @@
                     </div>
                 </div>
 
-                <div class="resultado"></div>
-
                 <div class="chart"></div>
 
-                <img src="" id="tracejado">
-                <img src="" id="mapaRelacionamento">
+                <div class="resultado"></div>
+
+                <div class="ranking">
+                    <span>Melhores players do dia</span>
+                    <ul>
+                    <li>1º Lugar <span id="top1"></span></li>
+                    <li>2º Lugar <span id="top2"></span></li>
+                    <li>3º Lugar <span id="top3"></span></li>
+                    <li>4º Lugar <span id="top4"></span></li>
+                    <li>5º Lugar <span id="top5"></span></li>
+                    </ul>
+                    </div>
+
+                <!-- <img src="../img/Mapa de Relacionamento Xaveco.png" id="mapaRelacionamento"> -->
 
 
             </div>
