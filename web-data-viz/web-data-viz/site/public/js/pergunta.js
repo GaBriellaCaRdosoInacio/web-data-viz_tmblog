@@ -15,5 +15,10 @@ oi.innerHTML= ' ';
 clique.innerHTML= ' ';
 
 contadorP++;
+
+if(contadorP==6){
+    acertosErros()
+}
+
 }
 

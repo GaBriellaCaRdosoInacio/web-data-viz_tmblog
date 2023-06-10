@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="img/logo-aba-site.png" type="image/x-icon">
     <script src="js/menu.js"></script>
     <script src="js/funcoes.js"></script>
-    <script src="../public/js/pergunta.js"></script>
+    <script src="js/pergunta.js"></script>
 
 </head>
 <body>
@@ -39,7 +39,7 @@
                 <div id="pergunta"></div>
                     <div class="select">
                         <select id="select_resposta">
-                            <option class="option-teste" id="optEscolha">-- Escolha uma alternativa --</option>
+                            <option class="option-teste" value="nulo" id="optEscolha">-- Escolha uma alternativa --</option>
                             <option class="option-teste" value="A"> Sim</option>
                             <option class="option-teste" value="B"> Não</option>
                                 </select>
@@ -89,63 +89,269 @@
 b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
 //var global validar resposta
-// var listaGabarito= [ '  ', 'A', 'B', 'A','A', 'A'];
 var acerto= 0;
-var contadorQuiz=0
-var resposta= select_resposta.value;
+var erro=0;
+
 
 function validar() {
 
-
-var resposta= select_resposta.value;
-contadorQuiz==1; 
-
+var resposta= select_resposta.value; //transforma o select em uma var
 
     for(var contador=0; contador< 5 ; contador++){
-        if(contadorQuiz==2){
+        if(listaPerg[0]){
         if(contador== 0 && proximaQ==1){
             if (resposta=='A') {
                 acerto += 1;
-                console.log(acerto)
+                console.log(acerto);
+                //valida os acertos
+
+                if(erro==1){
+                    acerto=0;
+                }
+
+                if(acerto>1){
+                    acerto= acerto-1;
+                    alert('Só pode validar uma vez');
+                    console.log(acerto);
+                } //vê se os acertos excederam o possivel e normaliza
+
+
             } else {
-                console.log(acerto)
-            }}
+
+                if(resposta=='nulo'){
+                alert('Escolha uma opção válida');
+            }
+
+            else{
+                console.log(erro);
+                erro= erro + 1;
+                acerto==0;
+
+                if(acerto==1){
+                    erro=0;
+                }
+               
+                if(erro>1){
+                    erro= erro-1;
+                    alert('Só pode validar uma vez');
+                    console.log(erro);
+                }
+            }}}
 
             if(contador== 1 && proximaQ==2){
             if (resposta=='B') {
                 acerto += 1;
-                console.log(acerto)
+                console.log(acerto);
+                //valida os acertos
+
+                if(erro==2){
+                    acerto=acerto-1;
+                }
+
+                if(acerto>2){
+                    acerto= acerto-1;
+                    alert('Só pode validar uma vez');
+                    console.log(acerto);
+                } //vê se os acertos excederam o possivel e normaliza
+
+
             } else {
-                console.log(acerto)
-            }}
+
+                if(resposta=='nulo'){
+                alert('Escolha uma opção válida');
+            }
+
+            else{
+                console.log(erro);
+                erro= erro + 1;
+                acerto==0;
+
+                if(acerto==2){
+                    erro=erro-1;
+                }
+               
+                if(erro>2){
+                    erro= erro-1;
+                    alert('Só pode validar uma vez');
+                    console.log(erro);
+                }
+            }}}
+
             if(contador== 2 && proximaQ==3){
             if (resposta=='A') {
-                acerto += 1;
-                console.log(acerto)
+                acerto ++;
+                console.log(acerto);
+                //valida os acertos
+
+                if(erro==3){
+                    acerto=acerto-1;
+                }
+
+                if(acerto>3){
+                    acerto= acerto-1;
+                    alert('Só pode validar uma vez');
+                    console.log(acerto);
+                } //vê se os acertos excederam o possivel e normaliza
+
+
             } else {
-                console.log(acerto)
-            }}
+
+                if(resposta=='nulo'){
+                alert('Escolha uma opção válida');
+                 //valida se a opção é valida
+            }
+
+            else{
+                console.log(erro);
+                erro= erro + 1;
+                acerto==0;
+
+
+                if(acerto==3 || acerto==2){
+                    erro=erro-1;
+                }
+               
+                if(erro>3){
+                    erro= erro-1;
+                    alert('Só pode validar uma vez');
+                    console.log(erro);
+                }
+            }}}
+
             if(contador== 3 && proximaQ==4){
             if (resposta=='A') {
-                acerto += 1;
-                console.log(acerto)
+                acerto +=1;
+                console.log(acerto);
+                //valida os acertos
+
+                if(erro==4){
+                    acerto=acerto-1;
+                }
+
+                if(acerto>4){
+                    acerto= acerto-1;
+                    alert('Só pode validar uma vez');
+                    console.log(acerto);
+                } //vê se os acertos excederam o possivel e normaliza
+
+
             } else {
-                console.log(acerto)
-            }}
+
+                if(resposta=='nulo'){
+                alert('Escolha uma opção válida');
+                 //valida se a opção é valida
+            }
+
+            else{
+                console.log(erro);
+                erro+=1;
+                acerto==0;
+
+
+                if(acerto==4){
+                    erro=erro-1;
+                }
+               
+                if(erro>4){
+                    erro= erro-1;
+                    alert('Só pode validar uma vez');
+                    console.log(erro);
+                }
+            }}}
+
             if(contador== 4 && proximaQ==5){
             if (resposta=='A') {
-                acerto += 1;
-                console.log(acerto)
+                acerto ++;
+                console.log(acerto);
+                //valida os acertos
+
+                if(erro==5){
+                    acerto=acerto-1;
+                }
+
+                if(acerto>5){
+                    acerto= acerto-1;
+                    alert('Só pode validar uma vez');
+                    console.log(acerto);
+                } //vê se os acertos excederam o possivel e normaliza
+
+
             } else {
-                console.log(acerto)
-            }}
 
-} contadorQuiz++;
+                if(resposta=='nulo'){
+                alert('Escolha uma opção válida');
+                 //valida se a opção é valida
+            }
+
+            else{
+                console.log(erro);
+                erro+=1;
+                acerto==0;
+
+
+                if(acerto==5){
+                    erro=erro-1;
+                }
+               
+                if(erro>5){
+                    erro= erro-1;
+                    alert('Só pode validar uma vez');
+                    console.log(erro);
+                }
+            }}}
+
+
+           
+
+} 
+}
+
+    if(listaPerg[4]){
+        alert(`pontuação final: acertos=${acerto} e erros=${erro}`)
+    }
 
 }
 
 
 
-}
+function acertosErros() {
+
+        // Enviando o valor da nova input
+        fetch("/medidas/dadosQuiz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: acerto,
+                errosServer: erro
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                alert("Pontuação contabilizada com sucesso! Redirecionando para a área de resultados...");
+
+                setTimeout(() => {
+                    window.location = "../dashboard/dashboard.html";
+                }, "2000")
+
+                limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao contabilizar suas respostas");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
 
 </script>
