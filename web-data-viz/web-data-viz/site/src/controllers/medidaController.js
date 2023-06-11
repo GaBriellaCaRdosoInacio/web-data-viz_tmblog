@@ -41,17 +41,19 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
-function acertosErros(req,res) {
-    var acertos = req.body.acerto;
+function buscarDadosQuiz(req,res) {
+    var acertos = req.body.acertoServer;
     var erros= req.body.erroServer;
+    var fkuser= req.body.fkuserServer;
 
-    if (acertos > 5 || erros > 5) {
+
+    if (acertos > 5 || erros > 5 || fkuser == undefined) {
         res.status(400).send("Seu resultado está errado, refaça o quiz!");
     } 
     else {
         
      // Passe os valores como parâmetro e vá para o arquivo medidaModel.js
-        medidaModel.acertosErros(acertos, erros)
+        medidaModel.buscarDadosQuiz(acertos, erros, fkuser)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -69,9 +71,34 @@ function acertosErros(req,res) {
     }
 }
 
+function obterDadosAtuais (req, res) {
+
+    var acertos = req.body.acertoServer;
+    var erros= req.body.erroServer;
+    var fkuser= req.body.fkuserServer;
+
+
+    medidaModel.obterDadosAtuais (acertos, erros, fkuser)
+    
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a sua pontuação.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    acertosErros
+    buscarDadosQuiz,
+    obterDadosAtuais 
 
 }

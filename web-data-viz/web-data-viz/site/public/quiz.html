@@ -47,6 +47,7 @@
             </div>
             <div id="mensagem"></div>
             </div>
+            <div id="registrar"></div>
             <div class="prosseguir">
             <button onclick="proximo()">Prosseguir</button>
             </div>
@@ -310,11 +311,16 @@ var resposta= select_resposta.value; //transforma o select em uma var
         alert(`pontuação final: acertos=${acerto} e erros=${erro}`)
     }
 
+
 }
 
 
 
-function acertosErros() {
+function buscarDadosQuiz() {
+
+    var errosVar = Number(erro);
+    var acertosVar = Number(acerto);
+    var fkuserVar= Number(sessionStorage.getItem('ID_USUARIO'))
 
         // Enviando o valor da nova input
         fetch("/medidas/dadosQuiz", {
@@ -324,16 +330,16 @@ function acertosErros() {
             },
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: acerto,
-                errosServer: erro
+                // Agora vá para o arquivo routes/medidas.js
+                acertoServer: acertosVar,
+                erroServer: errosVar,
+                fkuserServer: fkuserVar
             })
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                // cardErro.style.display = "block";
 
                 alert("Pontuação contabilizada com sucesso! Redirecionando para a área de resultados...");
 
@@ -341,14 +347,11 @@ function acertosErros() {
                     window.location = "../dashboard/dashboard.html";
                 }, "2000")
 
-                limparFormulario();
-                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao contabilizar suas respostas");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
         });
 
         return false;

@@ -283,3 +283,8 @@ button{
   .mapa button{
     margin-top: 220px;
   }
+
+  .mychart{
+    margin-top: 50%;
+    position: absolute;
+  }

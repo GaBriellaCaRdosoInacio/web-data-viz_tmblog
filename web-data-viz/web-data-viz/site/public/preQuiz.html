@@ -113,17 +113,26 @@
   function achar() {
     clearInterval(interval);
 
+    var nome= sessionStorage.NOME_USUARIO;
+
     var tempoPercorrido = 60 - segundo;
 
     alert(`Achou, levou ${tempoPercorrido} segundo !`);
 
-      setTimeout(function () {
-    window.location = "quiz.html";
-    }, 1000); 
+    //   setTimeout(function () {
+    // window.location = "quiz.html";
+    // }, 1000); 
+
+
+    localStorage.setItem(`${nome}`,`${tempoPercorrido}`)
 
     // id do usuario
     // tempoPercorrido
 
     // fazer um FETCH e passar esse tempo (variavel segundo) para a API.
+
+
   }
+
+  alert(`${localStorage.getItem("tempoPercorrido")}`)
 </script>

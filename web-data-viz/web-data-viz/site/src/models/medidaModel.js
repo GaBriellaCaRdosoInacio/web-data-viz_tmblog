@@ -61,16 +61,31 @@ function buscarMedidasEmTempoReal(idAquario) {
     return database.executar(instrucaoSql);
 }
 
-function acertosErros(acertos, erros){
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
+function buscarDadosQuiz(acertos, erros, fkuser){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", acertos, erros, fkuser);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO resultadoFinal (acertos, erros) VALUES ('${acertos}', '${erros}');
+        INSERT INTO resultadoFinal (acertos, erros, fkuser) VALUES ('${acertos}', '${erros}', '${fkuser}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
+}
+
+function obterDadosAtuais (acertos, erros, fkuser) {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `select acertos,erros from resultadoFinal join usuario on fkuser= iduser limit 1;`;
+    } else {
+        console.log("\nO AMBIENTE (desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 
@@ -78,5 +93,6 @@ function acertosErros(acertos, erros){
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    acertosErros
+    buscarDadosQuiz,
+    obterDadosAtuais 
 }

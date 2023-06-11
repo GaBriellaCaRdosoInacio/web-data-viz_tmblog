@@ -11,8 +11,20 @@ router.get("/tempo-real/:idAquario", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.post("/tempoPreQuiz", function (req, res) {
+    medidaController.enviarTempoPreQuiz(req, res);
+})
+
+router.get("/tempoSelecionado", function (req, res) {
+    medidaController.obterTempoPreQuiz(req, res);
+})
+
 router.post("/dadosQuiz", function (req, res) {
-    medidaController.acertosErros(req, res);
+    medidaController.buscarDadosQuiz(req, res);
+})
+
+router.get("/dadosAtuais", function (req, res) {
+    medidaController.obterDadosAtuais(req, res);
 })
 
 module.exports = router;
