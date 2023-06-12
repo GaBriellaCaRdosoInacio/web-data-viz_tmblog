@@ -101,6 +101,8 @@
 </html>
 
 <script>
+
+    var iduser = sessionStorage.ID_USUARIO;
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var listaPlayers=[];
     // var iduser = sessionStorage.ID_USUARIO;
@@ -119,10 +121,10 @@ let proximaAtualizacao;
 window.onload = obterDadosAtuais();
 window.onload= obterTempoPreQuiz();
 
-// function obterDadosAtuais() {
-//     obterDadosAtuais()
-//     obterDadosAtuais()
-// }
+function obterDadosAtuais() {
+    obterDadosAtuais(iduser)
+    // obterDadosAtuais()
+}
 
 // verificar_autenticacao();
 
@@ -147,6 +149,8 @@ function obterDadosAtuais(iduser) {
 
     // alterarTitulo2(iduser)
 
+    // var iduser = sessionStorage.ID_USUARIO;
+
     if (proximaAtualizacao != undefined) {
         clearTimeout(proximaAtualizacao);
     }
@@ -157,7 +161,7 @@ function obterDadosAtuais(iduser) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
 
-                plotarGrafico(resposta, fkuser);
+                plotarGrafico(resposta, iduser);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -171,7 +175,9 @@ function obterDadosAtuais(iduser) {
 
 function obterTempoPreQuiz( ) {
 
-// alterarTitulo2(iduser)
+// alterarTitulo2()
+
+// var iduser = sessionStorage.ID_USUARIO;
 
 if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
@@ -183,7 +189,7 @@ fetch(`/medidas/tempoSelecionado/`, { cache: 'no-store' }).then(function (respon
             console.log(`Dados recebidos: ${JSON.stringify(ranking)}`);
             ranking.reverse();
 
-            plotarGrafico(ranking);
+            // plotarGrafico(ranking);
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -199,6 +205,8 @@ fetch(`/medidas/tempoSelecionado/`, { cache: 'no-store' }).then(function (respon
 // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
 // A função *plotarGrafico* também invoca a função *atualizarGrafico*
 function plotarGrafico(resposta, iduser) {
+
+    var iduser = sessionStorage.ID_USUARIO;
 
     console.log('iniciando plotagem do gráfico...');
 
