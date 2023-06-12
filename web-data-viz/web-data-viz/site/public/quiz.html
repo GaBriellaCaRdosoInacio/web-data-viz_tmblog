@@ -141,11 +141,11 @@ var resposta= select_resposta.value; //transforma o select em uma var
 
             if(contador== 1 && proximaQ==2){
             if (resposta=='B') {
-                acerto += 1;
+                acerto ++;
                 console.log(acerto);
                 //valida os acertos
 
-                if(erro==2){
+                if(acerto==2){
                     acerto=acerto-1;
                 }
 
@@ -164,7 +164,7 @@ var resposta= select_resposta.value; //transforma o select em uma var
 
             else{
                 console.log(erro);
-                erro= erro + 1;
+                erro++;
                 acerto==0;
 
                 if(acerto==2){
@@ -180,7 +180,7 @@ var resposta= select_resposta.value; //transforma o select em uma var
 
             if(contador== 2 && proximaQ==3){
             if (resposta=='A') {
-                acerto ++;
+                acerto= acerto + 1;
                 console.log(acerto);
                 //valida os acertos
 
@@ -204,11 +204,11 @@ var resposta= select_resposta.value; //transforma o select em uma var
 
             else{
                 console.log(erro);
-                erro= erro + 1;
+                erro+=1;
                 acerto==0;
 
 
-                if(acerto==3 || acerto==2){
+                if(acerto==3){
                     erro=erro-1;
                 }
                
@@ -221,7 +221,7 @@ var resposta= select_resposta.value; //transforma o select em uma var
 
             if(contador== 3 && proximaQ==4){
             if (resposta=='A') {
-                acerto +=1;
+                acerto= acerto + 1;
                 console.log(acerto);
                 //valida os acertos
 
@@ -229,7 +229,7 @@ var resposta= select_resposta.value; //transforma o select em uma var
                     acerto=acerto-1;
                 }
 
-                if(acerto>4){
+                if(acerto>4 || acerto==4){
                     acerto= acerto-1;
                     alert('Só pode validar uma vez');
                     console.log(acerto);
@@ -262,7 +262,7 @@ var resposta= select_resposta.value; //transforma o select em uma var
 
             if(contador== 4 && proximaQ==5){
             if (resposta=='A') {
-                acerto ++;
+                acerto= acerto +1;
                 console.log(acerto);
                 //valida os acertos
 
@@ -286,7 +286,7 @@ var resposta= select_resposta.value; //transforma o select em uma var
 
             else{
                 console.log(erro);
-                erro+=1;
+                erro++;
                 acerto==0;
 
 

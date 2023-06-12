@@ -20,16 +20,6 @@ senha char(8)
 select * from usuario;
 
 
-create table quiz_pergunta(
-idpergnt int primary key auto_increment,
-pergunta int
-);
-
-create table quiz_resposta(
-idresp int primary key auto_increment,
-resposta char(1)
-);
-
 create table preQuiz(
 fkusuario int,
 tempo int,
@@ -41,7 +31,7 @@ acertos int,
 erros int,
 fkuser int,
 constraint fkuser foreign key (fkuser)
-references usuario (iduser)
+references usuario (iduser),
 );
 
 select * from preQuiz;
