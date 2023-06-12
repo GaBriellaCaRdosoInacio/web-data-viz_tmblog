@@ -41,6 +41,35 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
+function enviarTempoPreQuiz(req,res) {
+    var tempoPercorrido= req.body.erroServer;
+    var fkusuario= req.body.fkusuarioServer;
+
+
+    if (tempoPercorrido ==0 || fkusuario == undefined) {
+        res.status(400).send("Seu resultado está errado, refaça o game!");
+    } 
+    else {
+        
+     // Passe os valores como parâmetro e vá para o arquivo medidaModel.js
+        medidaModel.enviarTempoPreQuiz(tempoPercorrido, fkusuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao contabilizar sua pontuação! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 function buscarDadosQuiz(req,res) {
     var acertos = req.body.acertoServer;
     var erros= req.body.erroServer;
@@ -98,6 +127,7 @@ function obterDadosAtuais (req, res) {
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
+    enviarTempoPreQuiz,
     buscarDadosQuiz,
     obterDadosAtuais 
 

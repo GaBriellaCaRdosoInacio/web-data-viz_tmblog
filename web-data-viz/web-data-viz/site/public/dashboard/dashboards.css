@@ -76,7 +76,7 @@ height: 60px;
 
 .menu_resp{
 background-color: rgba(255, 255, 255, 0.89); 
-margin-left: 1149px;
+margin-left: 1022px;
 top: 120px; 
 width: 200px; 
 height: 220px;
@@ -232,9 +232,9 @@ button{
   }
 
   .ranking{
-    margin-top: 220px;
+    margin-top: 200px;
     position: absolute;
-    margin-left: 750px;
+    margin-left: 745px;
   }
 
   .ranking span{
@@ -248,7 +248,13 @@ button{
     margin-top: 20px;
   }
 
-
+.ranking small{
+  position: absolute;
+  margin-top: 2px;
+  font-size: 15px;
+  margin-right: 40px;
+  color: #1d162b;
+}
 
   .ranking button{
     margin-top: 30px;
@@ -261,10 +267,10 @@ button{
 
   .mapa{
     position: absolute;
-    margin-top: 610px;
+    margin-top: 580px;
     display: flex;
     align-items: start;
-    margin-right: 120px;
+    margin-right: 400px;
     justify-content: space-evenly;
   }
 
@@ -273,11 +279,12 @@ button{
     height: 45vh;
   }
 
-  .mapa h2{
-    margin-top: 50px;
+  .mapa h3{
+    margin-top: -40px;
     margin-left: 20px;
     color: #675097;
-    width: 300px;
+    width: 800px;
+    position: absolute;
   }
 
   .mapa button{
@@ -285,6 +292,7 @@ button{
   }
 
   .graph{
-    margin-top: 300px;
+    margin-top: 590px;
     position: absolute;
+    margin-left: 500px;
   }

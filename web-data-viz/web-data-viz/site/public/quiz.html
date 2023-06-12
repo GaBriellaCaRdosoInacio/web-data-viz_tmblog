@@ -145,9 +145,9 @@ var resposta= select_resposta.value; //transforma o select em uma var
                 console.log(acerto);
                 //valida os acertos
 
-                if(acerto==2){
-                    acerto=acerto-1;
-                }
+                // if(acerto==2){
+                //     acerto=acerto-1;
+                // }
 
                 if(acerto>2){
                     acerto= acerto-1;
@@ -229,7 +229,7 @@ var resposta= select_resposta.value; //transforma o select em uma var
                     acerto=acerto-1;
                 }
 
-                if(acerto>4 || acerto==4){
+                if(acerto>4){
                     acerto= acerto-1;
                     alert('Só pode validar uma vez');
                     console.log(acerto);
@@ -307,9 +307,9 @@ var resposta= select_resposta.value; //transforma o select em uma var
 } 
 }
 
-    if(listaPerg[4]){
-        alert(`pontuação final: acertos=${acerto} e erros=${erro}`)
-    }
+    // if(listaPerg[4]){
+    //     alert(`pontuação final: acertos=${acerto} e erros=${erro}`)
+    // }
 
 
 }

@@ -27,11 +27,12 @@ constraint fkusuario foreign key (fkusuario) references usuario(iduser)
 );
 
 create table resultadoFinal(
+idResultado int primary key auto_increment,
 acertos int,
 erros int,
 fkuser int,
 constraint fkuser foreign key (fkuser)
-references usuario (iduser),
+references usuario (iduser)
 );
 
 select * from preQuiz;
