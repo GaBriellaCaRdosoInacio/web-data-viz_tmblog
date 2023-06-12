@@ -1,6 +1,7 @@
 var medidaModel = require("../models/medidaModel");
 
 
+
 function enviarTempoPreQuiz(req,res) {
     var tempo= req.body.tempoServer;
     var fkusuario= req.body.fkusuarioServer;
@@ -29,6 +30,28 @@ function enviarTempoPreQuiz(req,res) {
             );
     }
 }
+
+function obterTempoPreQuiz(req,res){
+    var iduser= req.params.iduser;
+    var tempo= req.body.tempoServer;
+    var fkusuario= req.body.fkusuarioServer;
+
+    medidaModel.obterTempoPreQuiz (tempo, fkusuario, iduser)
+    
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a sua pontuação.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
 
 function buscarDadosQuiz(req,res) {
     var acertos = req.body.acertoServer;
@@ -86,6 +109,7 @@ function obterDadosAtuais (req, res) {
 
 module.exports = {
     enviarTempoPreQuiz,
+    obterTempoPreQuiz,
     buscarDadosQuiz,
     obterDadosAtuais 
 

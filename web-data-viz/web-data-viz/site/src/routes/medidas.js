@@ -15,7 +15,7 @@ router.post("/dadosQuiz", function (req, res) {
     medidaController.buscarDadosQuiz(req, res);
 })
 
-router.get("/dadosAtuais/:iduser", function (req, res) {
+router.get("/dadosAtuais/:fkuser", function (req, res) {
     medidaController.obterDadosAtuais(req, res);
 })
 

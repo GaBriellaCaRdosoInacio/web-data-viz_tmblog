@@ -103,7 +103,7 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var listaPlayers=[];
-    var iduser = sessionStorage.ID_USUARIO;
+    // var iduser = sessionStorage.ID_USUARIO;
     // var porcento= Number(acertos * 20) 
 
     // resultado.innerHTML= `Seu resultado indica que o Xaveco te representa ${porcento}`
@@ -157,7 +157,7 @@ function obterDadosAtuais(iduser) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
 
-                plotarGrafico(resposta, iduser);
+                plotarGrafico(resposta, fkuser);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');

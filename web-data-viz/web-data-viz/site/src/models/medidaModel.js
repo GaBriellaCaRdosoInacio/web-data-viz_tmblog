@@ -14,7 +14,7 @@ function enviarTempoPreQuiz(tempo, fkusuario){
     return database.executar(instrucao);
 }
 
-function obterTempoPreQuiz(tempo, fkusuario){
+function obterTempoPreQuiz(tempo,fkusuario){
     
     instrucaoSql = ''
 
