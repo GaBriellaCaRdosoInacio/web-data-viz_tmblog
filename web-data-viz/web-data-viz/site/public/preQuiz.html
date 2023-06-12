@@ -91,6 +91,7 @@
 
 <script>
   var segundo = 60;
+  var tempoPercorrido=0;
   span_tempo.innerHTML = segundo;
 
   var interval = null;
@@ -113,11 +114,13 @@
   function achar() {
     clearInterval(interval);
 
-    var nome= sessionStorage.NOME_USUARIO;
+    // var nome= sessionStorage.NOME_USUARIO;
 
-    var tempoPercorrido = 60 - segundo;
+    tempoPercorrido = 60 - segundo;
 
     alert(`Achou, levou ${tempoPercorrido} segundo !`);
+
+    enviarTempoPreQuiz()
 
     //   setTimeout(function () {
     // window.location = "quiz.html";
@@ -136,7 +139,7 @@
 
   // alert(`${localStorage.getItem("tempoPercorrido")}`)
 
-  function buscarDadosQuiz() {
+  function enviarTempoPreQuiz() {
 
 
 var tempoVar = Number(tempoPercorrido);
@@ -162,9 +165,9 @@ var fkusuarioVar= Number(sessionStorage.getItem('ID_USUARIO'))
 
             alert("Pontuação contabilizada com sucesso! Redirecionando para a área de resultados...");
 
-            // setTimeout(() => {
-            //     window.location = "../dashboard/dashboard.html";
-            // }, "2000")
+            setTimeout(() => {
+                window.location = "../quiz.html";
+            }, "2000")
 
         } else {
             throw ("Houve um erro ao contabilizar suas respostas");

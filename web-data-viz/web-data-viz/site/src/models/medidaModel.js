@@ -1,63 +1,34 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario, limite_linhas) {
 
-    instrucaoSql = ''
-
-    if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        momento,
-                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idAquario}
-                    order by id desc`;
-    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idAquario}
-                    order by id desc limit ${limite_linhas}`;
-    } else {
-        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-        return
-    }
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-function buscarMedidasEmTempoReal(iduser) {
-
-    instrucaoSql = ''
-
-   if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select acertos, erros from resultadoFinal where fkusuario = ${iduser} 
-                    order by fkusuario desc limit 1`;
-    } else {
-        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-        return
-    }
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-function enviarTempoPreQuiz(tempoPercorrido, fkusuario){
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", tempoPercorrido, fkusuario);
+function enviarTempoPreQuiz(tempo, fkusuario){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", tempo, fkusuario);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     
     instrucao = `
-    INSERT INTO preQuiz (tempo, fkusuario) VALUES ('${tempoPercorrido}', '${fkusuario}');
+    INSERT INTO preQuiz (tempo, fkusuario) VALUES ('${tempo}', '${fkusuario}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
+}
+
+function obterTempoPreQuiz(tempo, fkusuario){
+    
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `select nome, tempo from preQuiz join usuario on fkusuario=iduser order by tempo limit 5;`;
+    } else {
+        console.log("\nO AMBIENTE (desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+
 }
 
 function buscarDadosQuiz(acertos, erros, fkuser){
@@ -78,7 +49,7 @@ function obterDadosAtuais (acertos, erros, fkuser) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select acertos,erros from resultadoFinal join usuario on fkuser= iduser order by resultadoFinal.idResultado desc limit 1;`;
+        instrucaoSql = `select acertos,erros from resultadoFinal join usuario on fkuser= ${iduser} order by resultadoFinal.idResultado desc limit 1;`;
     } else {
         console.log("\nO AMBIENTE (desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -93,9 +64,8 @@ function obterDadosAtuais (acertos, erros, fkuser) {
 
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal,
     enviarTempoPreQuiz,
+    obterTempoPreQuiz,
     buscarDadosQuiz,
     obterDadosAtuais 
 }

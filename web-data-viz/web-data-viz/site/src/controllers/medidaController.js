@@ -1,58 +1,18 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarUltimasMedidas(req, res) {
-
-    const limite_linhas = 7;
-
-    var idAquario = req.params.idAquario;
-
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
-
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
-
-
-function buscarMedidasEmTempoReal(req, res) {
-
-    var iduser = req.params.iduser;
-
-    console.log(`Recuperando medidas em tempo real`);
-
-    medidaModel.buscarMedidasEmTempoReal(iduser).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
 
 function enviarTempoPreQuiz(req,res) {
-    var tempoPercorrido= req.body.erroServer;
+    var tempo= req.body.tempoServer;
     var fkusuario= req.body.fkusuarioServer;
 
 
-    if (tempoPercorrido ==0 || fkusuario == undefined) {
+    if (tempo ==0 || fkusuario == undefined) {
         res.status(400).send("Seu resultado está errado, refaça o game!");
     } 
     else {
         
      // Passe os valores como parâmetro e vá para o arquivo medidaModel.js
-        medidaModel.enviarTempoPreQuiz(tempoPercorrido, fkusuario)
+        medidaModel.enviarTempoPreQuiz(tempo, fkusuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -125,8 +85,6 @@ function obterDadosAtuais (req, res) {
 
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal,
     enviarTempoPreQuiz,
     buscarDadosQuiz,
     obterDadosAtuais 
