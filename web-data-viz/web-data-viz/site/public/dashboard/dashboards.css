@@ -104,7 +104,7 @@ line-height: 42px;
 .banner{
   display: flex;
   width: 87%;
-  height: 900px;
+  height: 1050px;
   background-color: rgba(255, 255, 255, 0.875); 
   margin-top: 80px;
   text-align: center;
@@ -244,7 +244,7 @@ button{
   }
 
   .ranking{
-    margin-top: 190px;
+    margin-top: 210px;
     position: absolute;
     margin-left: 745px;
   }
@@ -260,12 +260,14 @@ button{
     margin-top: 15px;
   }
 
-.ranking small{
+.ranking #jogue{
   position: absolute;
   margin-top: 2px;
-  font-size: 13px;
-  margin-right: 35px;
+  font-size: 15px;
+  margin-left: -65px;
+  border: none;
   color: #1d162b;
+  width: 300px;
 }
 
   .ranking button{
@@ -279,7 +281,7 @@ button{
 
   .mapa{
     position: absolute;
-    margin-top: 580px;
+    margin-top: 660px;
     display: flex;
     align-items: start;
     margin-right: 400px;
@@ -292,12 +294,13 @@ button{
   }
 
   .mapa span{
-    margin-top: -35px;
+    margin-top: -80px;
     margin-left: 20px;
     color: #675097;
-    width: 900px;
+    width: 500px;
     position: absolute;
-    font-size: 21px;
+    font-size: 25px;
+    font-weight: 600;
   }
 
   .mapa button{
@@ -305,8 +308,11 @@ button{
   }
 
   .graph{
-    margin-top: 550px;
+    margin-top: 580px;
     position: absolute;
     margin-left: 650px;
   }
 
+  .graph h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }

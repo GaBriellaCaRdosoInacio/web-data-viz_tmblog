@@ -41,7 +41,7 @@
         <div class="header">
           <div class="container">
             <div class="logo">
-              <img id="logo1" src="img/logo_tmblog-removebg-preview.png" />
+              <img id="logo1" onclick="home()" src="img/logo_tmblog-removebg-preview.png" />
             </div>
             <div class="menu">
               <img
@@ -180,5 +180,8 @@ var fkusuarioVar= Number(sessionStorage.getItem('ID_USUARIO'))
     return false;
 }
 
+function home(){
+        window.location='index.html';
+    }
 
 </script>

@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="resultado">
-                    <span>Bem vindo a área de resultados, aqui você encontra um gráfico que 
+                    <span>Bem vindo(a) a área de resultados, aqui você encontra um gráfico que 
                         parametriza suas respostas, indicativos interativos,
                          um mapa de relacionamento e um ranking que agrupa as melhores pontuações dos jogadores</span>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="ranking">
                     <span>Melhores players do dia</span>
                     <ul id="top"></ul>
-                    <small>Jogue e tente entrar no ranking</small>
+                    <span id="jogue">Jogue e tente entrar no ranking</span>
                     <button onclick="jogar()">Jogar</button>
                     </div>
 
@@ -82,7 +82,7 @@
             <div class="graph">
                 <h3>Gráfico de compatibilidade</h3>
                 <span>Esse gráfico classifica de acordo com o que o xaveco responderia</span>
-                <canvas id="myChartX" style="height: 20vh;"></canvas>
+                <canvas id="myChartX" style="margin-top: 3px;"></canvas>
             </div>
 
             </div>
@@ -102,14 +102,11 @@
     var listaPlayers=[];
     let proximaAtualizacao;
     var iduser = sessionStorage.ID_USUARIO;
-    // var porcento= Number(acertos * 20) 
-
-    // resultado.innerHTML= `Seu resultado indica que o Xaveco te representa ${porcento}`
-
+   
     window.onload = obterDadosAtuais();
     setTimeout(() => {
                alert('Não gostou do seu resultado e deseja realizar o quiz novamente? Clique no mapa de relacionamento para ser redirecionado ao quiz');
-            }, "10000")
+            }, "6000")
 
     function quizAgain(){
         window.location = '../quiz.html'
@@ -123,16 +120,6 @@
 window.onload = obterDadosAtuais();
 window.onload= obterTempoPreQuiz();
 
-// function obterDadosAtuais() {
-//     obterDadosAtuais(fkuser)
-//     // obterDadosAtuais()
-// }
-
-// verificar_autenticacao();
-
-// function alterarTitulo2(iduser) {
-//     var iduser = sessionStorage.ID_USUARIO
-// }
 
 
 // O gráfico é construído com três funções:
@@ -173,15 +160,8 @@ function obterDadosAtuais(iduser) {
 
 }
 
+// Essa função pega os dados do banco na tabela preQuiz (definida no model) através do fetch
 function obterTempoPreQuiz( ) {
-
-    // var errosVar = Number(erro);
-    // var acertosVar = Number(acerto);
-    // var fkuserVar= Number(sessionStorage.getItem('ID_USUARIO'))
-
-// if (proximaAtualizacao != undefined) {
-//     clearTimeout(proximaAtualizacao);
-// }
 
 fetch(`/medidas/tempoSelecionado/`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
@@ -251,31 +231,13 @@ function plotarGrafico(resposta, iduser) {
             ],
             tension: 0.1
         }]
-        // {
-        //     label: 'Quantidade de questões',
-        //     data: [],
-        //     fill: true,
-        //     borderColor: 'blue',
-        //     backgroundColor: [
-        //         'rgb(255, 99, 132)',
-        //         'rgb(54, 162, 235)'
-        //     ],
-        //     tension: 0.1
-        // }
-        // ]
+     
     };
 
     console.log('----------------------------------------------')
     console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
     console.log(resposta)
 
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    // for (i = 0; i < resposta.length; i++) {
-    //     var registro = resposta[i];
-    //     // labels.push(registro.momento_grafico);
-    //     dados.datasets[0].data.push(registro.erros);
-    //     dados.datasets[0].data.push(registro.acertos);
-    // }
 
     console.log('----------------------------------------------')
     console.log('O gráfico será plotado com os respectivos valores:')
@@ -306,25 +268,48 @@ function plotarGrafico(resposta, iduser) {
 
 
     if(ultimaMedida.acertos==5 || ultimaMedida.acertos==4){
-        k4.style.backgroundColor= `#B866DF`
+        k4.style.backgroundColor= `#BE37FF` //muda a cor da kpi
+
+            if(ultimaMedida.acertos==5){
+                var porcentagem= ultimaMedida.acertos * 20
+                setTimeout(() => {
+                    alert(`Uau o xaveco te representa ${porcentagem}%`)
+            }, "3000") //apresenta ao usuario o resultado de acertos em porcentagem
+                
+            }
+            else{
+                var porcentagem= ultimaMedida.acertos * 20
+                setTimeout(() => {
+                    alert(`Legal o xaveco te representa ${porcentagem}%`)
+            }, "3000") //apresenta ao usuario o resultado de acertos em porcentagem
+            }
      }
     else if(ultimaMedida.acertos==3){
-        k3.style.backgroundColor= `#9A48BF`
+        k3.style.backgroundColor= `#922DBF` //muda a cor da kpi
+
+        var porcentagem= ultimaMedida.acertos * 20
+                setTimeout(() => {
+                    alert(`Existe uma semelhança, o xaveco te representa em ${porcentagem}%`)
+            }, "3000") //apresenta ao usuario o resultado de acertos em porcentagem
+
     }
     else if(ultimaMedida.acertos==2){
-        k2.style.backgroundColor= `#751F9D`
+        k2.style.backgroundColor= `#751F9D` //muda a cor da kpi
+        var porcentagem= ultimaMedida.acertos * 20
+                setTimeout(() => {
+                    alert(`Poxa que pena, o xaveco só te representa ${porcentagem}%`)
+            }, "3000") //apresenta ao usuario o resultado de acertos em porcentagem
     }
     else{
-        k1.style.backgroundColor= `#502F60`
+        k1.style.backgroundColor= `#502F60` //muda a cor das kpi
+        var porcentagem= ultimaMedida.acertos * 20
+                setTimeout(() => {
+                    alert(`Vocês são muito diferentes, o Xaveco representa ${porcentagem}% de você :(`)
+            }, "3000") //apresenta ao usuario o resultado de acertos em porcentagem
+            }
     }
 
-    // setTimeout(() => atualizarGrafico5(iduser, dados, myChart5), 2000);
-}
 
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
 
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
 
 </script>

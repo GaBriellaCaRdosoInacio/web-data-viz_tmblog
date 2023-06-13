@@ -22,7 +22,7 @@
          <!-- inicio header -->
             <div class="header"> 
             <div class="container">
-            <div class="logo"><img id="logo1" src="img/logo_tmblog-removebg-preview.png"></div>
+            <div class="logo"><img onclick="home()" id="logo1" src="img/logo_tmblog-removebg-preview.png"></div>
             <div class="menu">
                 <img onclick="clickmenu()" id="menu" src="img/menu_icon.png" style="cursor: pointer;">
             </div>
@@ -86,22 +86,25 @@
         var senhaVar = senha_inputC.value;
         // var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-        if (senhaVar)
         if (nomeVar == "" || emailVar == "" || senhaVar == "") {
             // cardErro.style.display = "block"
             alert("Mensagem de erro para todos os campos em branco");
-        // if(senhaVar<8 || senhaVar>8){
-        //     alert("A senha tem que ter 8 caracteres");
-        // }
-        // if(nomeVar.lenght < 3){
-        //     alert('O nome precisa ter pelo menos 3 caracteres')
-        // }
             // finalizarAguardar();
             return false;
         }
         else {
             // setInterval(sumirMensagem, 5000)
         }
+        if (emailVar.indexOf("@") < 0 || emailVar.indexOf(".") < 0) { 
+            alert("Email deve conter @ e ."); //valida se o email está com @ e .
+            return false;
+        } 
+        
+        if (senhaVar.length < 8) {
+            alert("A senha deve conter um # e no mínimo 8 caracteres");
+            return false;
+
+        } 
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -136,14 +139,14 @@
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
+            
         });
 
         return false;
     }
 
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
+    function home(){
+        window.location='index.html';
+    }
 
 </script>
