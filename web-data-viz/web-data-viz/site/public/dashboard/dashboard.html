@@ -44,19 +44,19 @@
                 <div id="mensagem"></div>
                 <div class="kpi">
 
-                    <div class="k1">
+                    <div id="k1">
                     <span>Não te representa</span>
                     </div>
 
-                    <div class="k2">
+                    <div id="k2">
                     <span>Representa um pouco</span>
                     </div>
 
-                    <div class="k3">
+                    <div id="k3">
                      <span>Te representa</span>
                     </div>
 
-                    <div class="k4">
+                    <div id="k4">
                     <span>Você é o Xaveco?</span>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
 
                 <div class="mapa" id="mapa">
                 <img src="../img/Mapa de Relacionamento Xaveco.png">
-                <h3>Esse mapa é um mapa de relacionamento que indica as relações do personagem</h3>
+                <span>Esse mapa é um mapa de relacionamento que indica as relações do personagem</span>
             </div>
             <div class="graph">
                 <canvas id="grafico_personalidade" style="z-index: 9990;"></canvas>
@@ -102,35 +102,33 @@
 
 <script>
 
-    var iduser = sessionStorage.ID_USUARIO;
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var listaPlayers=[];
-    // var iduser = sessionStorage.ID_USUARIO;
+    let proximaAtualizacao;
+    var iduser = sessionStorage.ID_USUARIO;
     // var porcento= Number(acertos * 20) 
 
     // resultado.innerHTML= `Seu resultado indica que o Xaveco te representa ${porcento}`
 
-    // window.onload = obterDadosAtuais();
+    window.onload = obterDadosAtuais();
 
     function jogar(){
         window.location = '../preQuiz.html';
     }
 
-let proximaAtualizacao;
 
 window.onload = obterDadosAtuais();
-window.onload= obterTempoPreQuiz();
+// window.onload= obterTempoPreQuiz();
 
-function obterDadosAtuais() {
-    obterDadosAtuais(iduser)
-    // obterDadosAtuais()
-}
+// function obterDadosAtuais() {
+//     obterDadosAtuais(fkuser)
+//     // obterDadosAtuais()
+// }
 
 // verificar_autenticacao();
 
 // function alterarTitulo2(iduser) {
 //     var iduser = sessionStorage.ID_USUARIO
-
 // }
 
 
@@ -147,9 +145,6 @@ function obterDadosAtuais() {
 //     Para ajustar o "select", ajuste o comando sql em src/models
 function obterDadosAtuais(iduser) {
 
-    // alterarTitulo2(iduser)
-
-    // var iduser = sessionStorage.ID_USUARIO;
 
     if (proximaAtualizacao != undefined) {
         clearTimeout(proximaAtualizacao);
@@ -173,33 +168,33 @@ function obterDadosAtuais(iduser) {
 
 }
 
-function obterTempoPreQuiz( ) {
+// function obterTempoPreQuiz( ) {
 
-// alterarTitulo2()
+//     var errosVar = Number(erro);
+//     var acertosVar = Number(acerto);
+//     var fkuserVar= Number(sessionStorage.getItem('ID_USUARIO'))
 
-// var iduser = sessionStorage.ID_USUARIO;
+// if (proximaAtualizacao != undefined) {
+//     clearTimeout(proximaAtualizacao);
+// }
 
-if (proximaAtualizacao != undefined) {
-    clearTimeout(proximaAtualizacao);
-}
+// fetch(`/medidas/tempoSelecionado/`, { cache: 'no-store' }).then(function (response) {
+//     if (response.ok) {
+//         response.json().then(function (ranking) {
+//             console.log(`Dados recebidos: ${JSON.stringify(ranking)}`);
+//             ranking.reverse();
 
-fetch(`/medidas/tempoSelecionado/`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-        response.json().then(function (ranking) {
-            console.log(`Dados recebidos: ${JSON.stringify(ranking)}`);
-            ranking.reverse();
+//             // plotarGrafico(ranking);
+//         });
+//     } else {
+//         console.error('Nenhum dado encontrado ou erro na API');
+//     }
+// })
+//     .catch(function (error) {
+//         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+//     });
 
-            // plotarGrafico(ranking);
-        });
-    } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-    }
-})
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    });
-
-}
+// }
 
 // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
 // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
@@ -207,6 +202,7 @@ fetch(`/medidas/tempoSelecionado/`, { cache: 'no-store' }).then(function (respon
 function plotarGrafico(resposta, iduser) {
 
     var iduser = sessionStorage.ID_USUARIO;
+
 
     console.log('iniciando plotagem do gráfico...');
 
@@ -283,6 +279,21 @@ function plotarGrafico(resposta, iduser) {
         document.getElementById(`grafico_personalidade`),
         config
     );
+
+
+    
+    if(ultimaMedida.acertos==5 || ultimaMedida.acertos==4){
+        k4.style.backgroundColor= `#B866DF`
+        }
+    else if(ultimaMedida.acertos==3){
+        k3.style.backgroundColor= `#9A48BF`
+    }
+    else if(ultimaMedida.acertos==2){
+        k3.style.backgroundColor= `#751F9D`
+    }
+    else{
+        k1.style.backgroundColor= `#502F60`
+    }
 
     // setTimeout(() => atualizarGrafico5(iduser, dados, myChart5), 2000);
 }

@@ -89,12 +89,15 @@
 
 b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+
 //var global validar resposta
 var acerto= 0;
 var erro=0;
 
 
 function validar() {
+    
+var iduser = sessionStorage.ID_USUARIO;
 
 var resposta= select_resposta.value; //transforma o select em uma var
 
@@ -308,10 +311,11 @@ var resposta= select_resposta.value; //transforma o select em uma var
 }
 
     // if(listaPerg[4]){
-    //     alert(`pontuação final: acertos=${acerto} e erros=${erro}`)
+    //     alert(`Sua resposta foi validada`)
     // }
 
-
+    // alert(`Sua resposta foi validada`)
+    
 }
 
 
@@ -321,6 +325,7 @@ function buscarDadosQuiz() {
     var errosVar = Number(erro);
     var acertosVar = Number(acerto);
     var fkuserVar= Number(sessionStorage.getItem('ID_USUARIO'))
+    var iduserVar= Number(sessionStorage.getItem('ID_USUARIO'))
 
         // Enviando o valor da nova input
         fetch("/medidas/dadosQuiz", {
@@ -333,7 +338,8 @@ function buscarDadosQuiz() {
                 // Agora vá para o arquivo routes/medidas.js
                 acertoServer: acertosVar,
                 erroServer: errosVar,
-                fkuserServer: fkuserVar
+                fkuserServer: fkuserVar,
+                iduserServer: iduserVar
             })
         }).then(function (resposta) {
 
