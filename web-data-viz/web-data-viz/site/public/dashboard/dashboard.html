@@ -61,7 +61,11 @@
                     </div>
                 </div>
 
-                <div class="resultado"></div>
+                <div class="resultado">
+                    <span>Bem vindo a área de resultados, aqui você encontra um gráfico que 
+                        parametriza suas respostas, indicativos interativos,
+                         um mapa de relacionamento e um ranking que agrupa as melhores pontuações dos jogadores</span>
+                </div>
 
                 <div class="ranking">
                     <span>Melhores players do dia</span>
@@ -72,7 +76,7 @@
 
 
                 <div class="mapa" id="mapa">
-                <img src="../img/Mapa de Relacionamento Xaveco.png">
+                <img onclick="quizAgain()" src="../img/Mapa de Relacionamento Xaveco.png">
                 <span>Esse mapa é um mapa de relacionamento que indica as relações do personagem</span>
             </div>
             <div class="graph">
@@ -105,7 +109,11 @@
     window.onload = obterDadosAtuais();
     setTimeout(() => {
                alert('Não gostou do seu resultado e deseja realizar o quiz novamente? Clique no mapa de relacionamento para ser redirecionado ao quiz');
-            }, "30000")
+            }, "10000")
+
+    function quizAgain(){
+        window.location = '../quiz.html'
+    }
 
     function jogar(){
         window.location = '../preQuiz.html';
@@ -152,7 +160,8 @@ function obterDadosAtuais(iduser) {
                 resposta.reverse();
 
                 plotarGrafico(resposta, iduser);
-
+                
+            
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -223,9 +232,8 @@ function plotarGrafico(resposta, iduser) {
 
     // Criando estrutura para plotar gráfico - labels
     let labels = ['identicos', 'nada haver'];
-
+        
     // Criando estrutura para plotar gráfico - dados
-
 
     let dados = {
         labels: labels,
@@ -296,11 +304,10 @@ function plotarGrafico(resposta, iduser) {
     );
 
 
-    
+
     if(ultimaMedida.acertos==5 || ultimaMedida.acertos==4){
         k4.style.backgroundColor= `#B866DF`
-        resultado.innerHTML= ``
-        }
+     }
     else if(ultimaMedida.acertos==3){
         k3.style.backgroundColor= `#9A48BF`
     }
@@ -313,7 +320,6 @@ function plotarGrafico(resposta, iduser) {
 
     // setTimeout(() => atualizarGrafico5(iduser, dados, myChart5), 2000);
 }
-
 
 // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
 // buscando a última medida inserida em tabela contendo as capturas, 

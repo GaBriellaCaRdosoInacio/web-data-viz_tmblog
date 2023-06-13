@@ -170,6 +170,7 @@ button{
     font-size: 20px;
     color: white;
     font-weight: 600;
+    text-shadow: #1d162b 0.5px 0.5px;
   }
 
   #k2{
@@ -186,6 +187,7 @@ button{
     font-size: 20px;
     color: white;
     font-weight: 600;
+    text-shadow: #1d162b 0.5px 0.5px;
   }
 
   #k3{
@@ -202,6 +204,7 @@ button{
     font-size: 20px;
     color: white;
     font-weight: 600;
+    text-shadow: #1d162b 0.5px 0.5px;
   }
 
   #k4{
@@ -218,6 +221,7 @@ button{
     font-size: 20px;
     color: white;
     font-weight: 600;
+    text-shadow: #1d162b 0.5px 0.5px;
   }
 
 
@@ -231,8 +235,16 @@ button{
     position: absolute;
   }
 
+  .resultado span{
+    margin-top: 55px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    color: white;
+    text-shadow: #1d162b 0.5px 0.5px;
+  }
+
   .ranking{
-    margin-top: 200px;
+    margin-top: 190px;
     position: absolute;
     margin-left: 745px;
   }
@@ -245,14 +257,14 @@ button{
   }
 
   .ranking ul{
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
 .ranking small{
   position: absolute;
   margin-top: 2px;
-  font-size: 15px;
-  margin-right: 40px;
+  font-size: 13px;
+  margin-right: 35px;
   color: #1d162b;
 }
 
