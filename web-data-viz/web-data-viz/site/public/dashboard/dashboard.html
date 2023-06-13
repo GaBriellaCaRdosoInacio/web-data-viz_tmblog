@@ -65,13 +65,7 @@
 
                 <div class="ranking">
                     <span>Melhores players do dia</span>
-                    <ul>
-                    <li>1º Lugar <span id="top1"></span></li>
-                    <li>2º Lugar <span id="top2"></span></li>
-                    <li>3º Lugar <span id="top3"></span></li>
-                    <li>4º Lugar <span id="top4"></span></li>
-                    <li>5º Lugar <span id="top5"></span></li>
-                    </ul>
+                    <ul id="top"></ul>
                     <small>Jogue e tente entrar no ranking</small>
                     <button onclick="jogar()">Jogar</button>
                     </div>
@@ -82,10 +76,9 @@
                 <span>Esse mapa é um mapa de relacionamento que indica as relações do personagem</span>
             </div>
             <div class="graph">
-                <canvas id="grafico_personalidade" style="z-index: 9990;"></canvas>
-            </div>
-            <div class="legenda">
-                <img src="">
+                <h3>Gráfico de compatibilidade</h3>
+                <span>Esse gráfico classifica de acordo com o que o xaveco responderia</span>
+                <canvas id="myChartX" style="height: 20vh;"></canvas>
             </div>
 
             </div>
@@ -101,7 +94,6 @@
 </html>
 
 <script>
-
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var listaPlayers=[];
     let proximaAtualizacao;
@@ -111,6 +103,9 @@
     // resultado.innerHTML= `Seu resultado indica que o Xaveco te representa ${porcento}`
 
     window.onload = obterDadosAtuais();
+    setTimeout(() => {
+               alert('Não gostou do seu resultado e deseja realizar o quiz novamente? Clique no mapa de relacionamento para ser redirecionado ao quiz');
+            }, "30000")
 
     function jogar(){
         window.location = '../preQuiz.html';
@@ -118,7 +113,7 @@
 
 
 window.onload = obterDadosAtuais();
-// window.onload= obterTempoPreQuiz();
+window.onload= obterTempoPreQuiz();
 
 // function obterDadosAtuais() {
 //     obterDadosAtuais(fkuser)
@@ -157,6 +152,7 @@ function obterDadosAtuais(iduser) {
                 resposta.reverse();
 
                 plotarGrafico(resposta, iduser);
+
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -168,33 +164,50 @@ function obterDadosAtuais(iduser) {
 
 }
 
-// function obterTempoPreQuiz( ) {
+function obterTempoPreQuiz( ) {
 
-//     var errosVar = Number(erro);
-//     var acertosVar = Number(acerto);
-//     var fkuserVar= Number(sessionStorage.getItem('ID_USUARIO'))
+    // var errosVar = Number(erro);
+    // var acertosVar = Number(acerto);
+    // var fkuserVar= Number(sessionStorage.getItem('ID_USUARIO'))
 
 // if (proximaAtualizacao != undefined) {
 //     clearTimeout(proximaAtualizacao);
 // }
 
-// fetch(`/medidas/tempoSelecionado/`, { cache: 'no-store' }).then(function (response) {
-//     if (response.ok) {
-//         response.json().then(function (ranking) {
-//             console.log(`Dados recebidos: ${JSON.stringify(ranking)}`);
-//             ranking.reverse();
+fetch(`/medidas/tempoSelecionado/`, { cache: 'no-store' }).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+            
+            var feed = document.getElementById("top"); // pega o elemento html
+            feed.innerHTML = ""; // limpa o elemento
+            for(var i = 0; i < resposta.length; i++){
 
-//             // plotarGrafico(ranking);
-//         });
-//     } else {
-//         console.error('Nenhum dado encontrado ou erro na API');
-//     }
-// })
-//     .catch(function (error) {
-//         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-//     });
+                var Jogador = document.createElement("li"); //cria um elemento/lista
 
-// }
+                Jogador.innerHTML = (i+1) + 'ºLugar ' + resposta[i].nome + " | Tempo: " 
+                + resposta[i].tempo; //pega a resposta em json e fragmenta de acordo com os campos do banco
+                // então ele pega a resposta (nome+tempo) e pega apenas um e exibe de acordo com o i
+                //  pois o primeiro item esta na posicao 0
+
+                feed.appendChild(Jogador); // seta a posicao onde vai exibir a mensagem na tela
+
+            }
+            
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+
+}
+
+
 
 // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
 // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
@@ -209,13 +222,15 @@ function plotarGrafico(resposta, iduser) {
     var ultimaMedida= resposta.pop();
 
     // Criando estrutura para plotar gráfico - labels
-    let labels = [];
+    let labels = ['identicos', 'nada haver'];
 
     // Criando estrutura para plotar gráfico - dados
+
+
     let dados = {
         labels: labels,
         datasets: [{
-            label: 'Sua pontuação',
+            label: 'O quanto o xaveco parece com você',
             data: [ultimaMedida.acertos, ultimaMedida.erros],
             fill: true,
             borderColor: [
@@ -275,8 +290,8 @@ function plotarGrafico(resposta, iduser) {
     };
 
     // Adicionando gráfico criado em div na tela
-    let myChart5 = new Chart(
-        document.getElementById(`grafico_personalidade`),
+    let myChartX = new Chart(
+        document.getElementById(`myChartX`),
         config
     );
 
@@ -284,6 +299,7 @@ function plotarGrafico(resposta, iduser) {
     
     if(ultimaMedida.acertos==5 || ultimaMedida.acertos==4){
         k4.style.backgroundColor= `#B866DF`
+        resultado.innerHTML= ``
         }
     else if(ultimaMedida.acertos==3){
         k3.style.backgroundColor= `#9A48BF`

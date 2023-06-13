@@ -75,22 +75,22 @@ function enviarTempoPreQuiz(tempo, fkusuario){
     return database.executar(instrucao);
 }
 
-// function obterTempoPreQuiz(tempo,fkusuario){
+function obterTempoPreQuiz(){
     
-//     instrucaoSql = ''
+    instrucaoSql = ''
 
-//     if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-//         instrucaoSql = `select nome, tempo from preQuiz join usuario on fkusuario= iduser order by tempo limit 5;`;
-//     } else {
-//         console.log("\nO AMBIENTE (desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-//         return
-//     }
+    if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `select nome, tempo from preQuiz join usuario on fkusuario= iduser order by tempo desc limit 5;`;
+    } else {
+        console.log("\nO AMBIENTE (desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
 
-//     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-//     return database.executar(instrucaoSql);
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 
 
-// }
+}
 
 function buscarDadosQuiz(acertos, erros, iduser){
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", acertos, erros, iduser);
@@ -129,6 +129,7 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     enviarTempoPreQuiz,
+    obterTempoPreQuiz,
     buscarDadosQuiz,
     obterDadosAtuais 
 }

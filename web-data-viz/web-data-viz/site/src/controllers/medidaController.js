@@ -72,25 +72,25 @@ function enviarTempoPreQuiz(req,res) {
     }
 }
 
-// function obterTempoPreQuiz(req,res){
-//     var iduser= req.params.iduser;
-//     var tempo= req.body.tempoServer;
-//     var fkusuario = req.body.fkusuarioServer;
-
-//     medidaModel.obterTempoPreQuiz (tempo, iduser)
+function obterTempoPreQuiz(req,res){
     
-//     .then(function (resultado) {
-//         if (resultado.length > 0) {
-//             res.status(200).json(resultado);
-//         } else {
-//             res.status(204).send("Nenhum resultado encontrado!")
-//         }
-//     }).catch(function (erro) {
-//         console.log(erro);
-//         console.log("Houve um erro ao buscar a sua pontuação.", erro.sqlMessage);
-//         res.status(500).json(erro.sqlMessage);
-//     });
-// }
+    var tempo= req.body.tempoServer;
+    var fkusuario = req.body.fkusuarioServer;
+
+    medidaModel.obterTempoPreQuiz(tempo, fkusuario)
+    
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar a sua pontuação.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 
     function buscarDadosQuiz(req,res) {
@@ -154,7 +154,7 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     enviarTempoPreQuiz,
-    // obterTempoPreQuiz,
+    obterTempoPreQuiz,
     buscarDadosQuiz,
     obterDadosAtuais 
 

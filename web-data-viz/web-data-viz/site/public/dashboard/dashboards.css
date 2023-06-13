@@ -149,7 +149,7 @@ button{
     width: 80vw;
     height: 18%;
     /* background-color: blanchedalmond; */
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -293,7 +293,8 @@ button{
   }
 
   .graph{
-    margin-top: 590px;
+    margin-top: 550px;
     position: absolute;
-    margin-left: 500px;
+    margin-left: 650px;
   }
+

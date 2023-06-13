@@ -15,11 +15,11 @@ router.post("/tempoPreQuiz", function (req, res) {
     medidaController.enviarTempoPreQuiz(req, res);
 })
 
-// router.get("/tempoSelecionado", function (req, res) {
-//     medidaController.obterTempoPreQuiz(req, res);
-// })
+router.get("/tempoSelecionado", function (req, res) {
+    medidaController.obterTempoPreQuiz(req, res);
+})
 
-router.post("/dadosQuiz", function (req, res) {
+router.post("/dadosQuiz/", function (req, res) {
     medidaController.buscarDadosQuiz(req, res);
 })
 
