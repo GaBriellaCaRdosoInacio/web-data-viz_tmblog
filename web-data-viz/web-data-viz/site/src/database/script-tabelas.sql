@@ -16,6 +16,12 @@ email varchar(50),
 senha char(8) 
 );
 
+insert into usuario values
+(null, 'maria paula', 'maria@gmail.com', 'maria123'),
+(null, 'sarah', 'saraH@gmail.com', 'sariss04'),
+(null, 'gyulia', 'gyulia@gmail.com', 'gyulia11');
+(null, 'bianca', 'biancA@gmail.com', 'bianca05');
+
 
 select * from usuario;
 
@@ -25,6 +31,12 @@ fkusuario int,
 tempo int,
 constraint fkusuario foreign key (fkusuario) references usuario(iduser)
 );
+
+insert into preQuiz values
+(1, 15),
+(2, 25),
+(3, 6),
+(4, 8);
 
 create table resultadoFinal(
 idResultado int primary key auto_increment,
