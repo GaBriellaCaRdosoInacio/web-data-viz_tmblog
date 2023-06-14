@@ -84,18 +84,19 @@
 
 <script>
 
+//criacao dos vetores/arrays
 var galeriaMonica=['img/mathRandom/M/foto1M.png', 'img/mathRandom/M/foto2M.jpg', 'img/mathRandom/M/foto3M.jpg', 'img/mathRandom/M/foto4M.jpg', 'img/mathRandom/M/foto5M.jpg','img/mathRandom/M/foto6M.jpg'];
 var galeriaXaveco=['img/mathRandom/X/foto1X.png', 'img/mathRandom/X/foto2X.jpg', 'img/mathRandom/X/foto3X.jpg', 'img/mathRandom/X/foto4X.png', 'img/mathRandom/X/foto5X.png', 'img/mathRandom/X/foto6X.png'];
 
 function monicaRandom(){
     if (galeriaMonica.length > 0) {
+
+        //sorteio de duas posições para exibir em divs diferentes
             var posicaoSorteada1 = parseInt(Math.random() * galeriaMonica.length);
             var posicaoSorteada2 = parseInt(Math.random() * galeriaMonica.length);
 
 
             imgM1.src = galeriaMonica[posicaoSorteada1];
-
-
 
             imgM2.src = galeriaMonica[posicaoSorteada2];
 
@@ -107,6 +108,8 @@ function xavecoRandom() {
     if (galeriaXaveco.length > 0) {
             var posicaoSorteada = parseInt(Math.random() * galeriaXaveco.length);
 
+
+            //sorteio de uma posicao
             imgX.src = galeriaXaveco[posicaoSorteada];
 
         }

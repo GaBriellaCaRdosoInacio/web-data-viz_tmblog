@@ -99,22 +99,29 @@
   function iniciar() {
     headerGame.innerHTML = " ";
 
+    //exibição de alert caso o usuario não encontre o xaveco
+    // cria um intervalo para exibir o alerta e dentro da validacao (se segundo for <= 0) ele limpa o intervalo 
+
     interval = setInterval(() => {
       segundo -= 1;
       span_tempo.innerHTML = segundo;
       if (segundo <= 0) {
         clearInterval(interval);
 
-        alert("O tempo acabou !");
+        alert("O tempo acabou, recarregue a página !");
 
       }
     }, 1000);
   }
 
   function achar() {
+    // essa função é a imagem onclick, então quando o usuário clica o tempo é paralisado 
+    // e o tempo que ele levou para encontrar é contabilizado na var tempoPercorrido (o tempo do game - o tempo que ele levou)
+    // aparece um alert com o tempo que ele levou
+    // então a função que envia para o banco é chamada (enviarTempoPreQuiz)
+
     clearInterval(interval);
 
-    // var nome= sessionStorage.NOME_USUARIO;
 
     tempoPercorrido = 60 - segundo;
 
@@ -122,22 +129,8 @@
 
     enviarTempoPreQuiz()
 
-    //   setTimeout(function () {
-    // window.location = "quiz.html";
-    // }, 1000); 
-
-
-    // localStorage.setItem(`${nome}`,`${tempoPercorrido}`)
-
-    // id do usuario
-    // tempoPercorrido
-
-    // fazer um FETCH e passar esse tempo (variavel segundo) para a API.
-
-
   }
 
-  // alert(`${localStorage.getItem("tempoPercorrido")}`)
 
   function enviarTempoPreQuiz() {
 
@@ -146,15 +139,13 @@ var tempoVar = Number(tempoPercorrido);
 var fkusuarioVar= Number(sessionStorage.getItem('ID_USUARIO'))
 
 
-    // Enviando o valor da nova input
+    // Enviando o tempo do preQuiz ao banco de dados
     fetch("/medidas/tempoPreQuiz", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/medidas.js
             tempoServer: tempoVar,
             fkusuarioServer: fkusuarioVar
         })

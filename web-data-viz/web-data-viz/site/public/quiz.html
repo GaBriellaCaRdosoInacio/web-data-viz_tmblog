@@ -310,9 +310,6 @@ var resposta= select_resposta.value; //transforma o select em uma var
 } 
 }
 
-    // if(listaPerg[4]){
-    //     alert(`Sua resposta foi validada`)
-    // }
 
     alert(`Sua resposta foi validada`)
     
@@ -327,15 +324,13 @@ function buscarDadosQuiz() {
     var fkuserVar= Number(sessionStorage.getItem('ID_USUARIO'))
     var iduserVar= Number(sessionStorage.getItem('ID_USUARIO'))
 
-        // Enviando o valor da nova input
+        // Enviando o resultado do quiz para o banco
         fetch("/medidas/dadosQuiz", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/medidas.js
                 acertoServer: acertosVar,
                 erroServer: errosVar,
                 fkuserServer: fkuserVar,
