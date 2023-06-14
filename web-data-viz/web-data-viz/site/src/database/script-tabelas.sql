@@ -19,7 +19,7 @@ senha char(8)
 insert into usuario values
 (null, 'maria paula', 'maria@gmail.com', 'maria123'),
 (null, 'sarah', 'saraH@gmail.com', 'sariss04'),
-(null, 'gyulia', 'gyulia@gmail.com', 'gyulia11');
+(null, 'gyulia', 'gyulia@gmail.com', 'gyulia11'),
 (null, 'bianca', 'biancA@gmail.com', 'bianca05');
 
 
